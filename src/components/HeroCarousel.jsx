@@ -1,22 +1,27 @@
+
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Navbar from './Navbar'
 import { Box, Button, Container, Typography } from '@mui/material'
+import Building1 from '../assets/building1.jpg'
+import Building2 from '../assets/building2.jpg'
+import Building3 from '../assets/building3.jpg'
 
 export default function HeroCarousel() {
   const slides = useMemo(() => [
     {
-      image: 'https://images.unsplash.com/photo-1434082033009-b81d41d32e1c?q=80&w=1920&auto=format&fit=crop',
+      image: Building1,
       title: 'Rewriting the Narrative.',
       subtitle: 'Redefining the Cityscape of Vizag.',
       cta: 'Schedule Your Site Visit'
     },
     {
-      image: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1920&auto=format&fit=crop',
+      image: Building2,
       title: 'Premium Apartments in Vizag',
       subtitle: 'Luxury gated communities and lifestyle amenities.',
       cta: 'Explore Projects'
     },
     {
-      image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1920&auto=format&fit=crop',
+      image: Building3, 
       title: 'Crafted For Modern Living',
       subtitle: 'Quality. Comfort. Community.',
       cta: 'Know More'
@@ -34,7 +39,9 @@ export default function HeroCarousel() {
   }, [slides.length])
 
   return (
-    <Box sx={{ position: 'relative', height: { xs: '70vh', md: '85vh' }, overflow: 'hidden' }}>
+    <Box sx={{ position: 'relative', height: { xs: '70vh', md: '100vh' }, overflow: 'hidden' }}>
+      {/* Navbar inside carousel */}
+      <Navbar />
       {/* Slides */}
       {slides.map((slide, i) => (
         <Box

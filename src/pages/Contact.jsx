@@ -1,8 +1,12 @@
 import { Box, Container, Grid, TextField, Button, Typography } from '@mui/material'
+import Navbar from '../components/Navbar'
+
 
 export default function Contact() {
+
   return (
     <Box>
+      <Navbar />
       <Container sx={{ py: { xs: 4, md: 6 } }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
