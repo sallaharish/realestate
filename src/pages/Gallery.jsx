@@ -1,10 +1,13 @@
 import { Box, Container, Grid } from '@mui/material'
+import Navbar from '../components/Navbar'
 
 const images = Array.from({ length: 12 }).map((_, i) => `https://picsum.photos/seed/gallery-${i}/600/400`)
+
 
 export default function Gallery() {
   return (
     <Box>
+      <Navbar />
       <Container sx={{ py: { xs: 4, md: 6 } }}>
         <Grid container spacing={1}>
           {images.map((src, idx) => (

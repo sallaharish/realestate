@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Grid, Card, CardActionArea, CardContent } from '@mui/material'
+import Navbar from '../components/Navbar'
 
 const posts = [
   { title: 'Checklist: Ready-to-Move vs Under-Construction Flats in Vizag', date: '16 September 2025' },
@@ -6,11 +7,12 @@ const posts = [
   { title: "First-Time Home Buyer? Here's why to choose MVV Builders", date: '18 July 2025' },
 ]
 
+
 export default function Blog() {
   return (
     <Box>
+      <Navbar />
       <Container sx={{ py: { xs: 4, md: 6 } }}>
-        <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>Latest News</Typography>
         <Grid container spacing={2}>
           {posts.map((p) => (
             <Grid item xs={12} md={4} key={p.title}>
