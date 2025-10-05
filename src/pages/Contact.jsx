@@ -1,9 +1,7 @@
 import { Box, Container, Grid, TextField, Button, Typography } from '@mui/material'
 import Navbar from '../components/Navbar'
 
-
 export default function Contact() {
-
   return (
     <Box>
       <Navbar />
@@ -13,8 +11,8 @@ export default function Contact() {
             <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>Contact Us</Typography>
             <Typography color="text.secondary">Corporate Office: D.No. 4-62-1, Plot No. 21, Lawsons Bay Colony, Visakhapatnam - 530017</Typography>
             <Box sx={{ mt: 2 }}>
-              <Typography>Email: info@mvvbuilders.com</Typography>
-              <Typography>Phone: +91 95179 91799</Typography>
+              <Typography>Email: suryaprimeventures@gmail.com</Typography>
+              <Typography>Phone: +91 99026 51666</Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>

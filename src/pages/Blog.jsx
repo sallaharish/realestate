@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 const posts = [
   { title: 'Checklist: Ready-to-Move vs Under-Construction Flats in Vizag', date: '16 September 2025' },
   { title: 'Flats vs Independent Houses in Vizag – Which is Better?', date: '14 August 2025' },
-  { title: "First-Time Home Buyer? Here's why to choose MVV Builders", date: '18 July 2025' },
+  { title: "First-Time Home Buyer? Here's why to choose Surya Prime Ventures", date: '18 July 2025' },
 ]
 
 

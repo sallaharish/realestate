@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery.jsx'
 import Blog from './pages/Blog.jsx'
 import Contact from './pages/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import FloatingActions from './components/FloatingActions.jsx'
 
 // navItems moved to HeroCarousel.jsx
 
@@ -20,6 +21,7 @@ function PageContainer({ children }) {
       {/* Navbar removed from here, will be inside HeroCarousel on Home page */}
       {/* <Toolbar /> */}
       {children}
+      <FloatingActions />
       <Footer />
     </Box>
   )
