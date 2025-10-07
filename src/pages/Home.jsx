@@ -647,7 +647,45 @@ function OurProjects() {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, position: 'relative', zIndex: 1 }}>
           {projects.map((project, index) => (
             <Box key={project.name} sx={{
-              bgcolor: 'rgba(224, 161, 70, 0.1)',
+              ...(index === 0 ? {
+                backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  bgcolor: 'rgba(0,0,0,0.6)',
+                  zIndex: 1
+                },
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
+                  pointerEvents: 'none',
+                  zIndex: 2
+                }
+              } : {
+                bgcolor: 'rgba(224, 161, 70, 0.1)',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  width: 200,
+                  height: 200,
+                  background: `radial-gradient(circle, ${gold}20 0%, transparent 70%)`,
+                  borderRadius: '50%',
+                  transform: 'translate(50%, -50%)'
+                }
+              }),
               border: `2px solid ${gold}`,
               borderRadius: 4,
               p: 4,
@@ -662,20 +700,9 @@ function OurProjects() {
                 '& .map-container': {
                   transform: 'scale(1.05)'
                 }
-              },
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: 200,
-                height: 200,
-                background: `radial-gradient(circle, ${gold}20 0%, transparent 70%)`,
-                borderRadius: '50%',
-                transform: 'translate(50%, -50%)'
               }
             }}>
-              <Grid container spacing={4} alignItems="center">
+              <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 3 }}>
                 <Grid item xs={12} md={7}>
                   <Typography variant="h4" sx={{
                     color: gold,
@@ -934,12 +961,11 @@ function Gallery() {
           <Typography 
             sx={{ 
               color: 'white', 
-              opacity: 0.9,
+              opacity: isVisible ? 0.9 : 0,
               fontSize: { xs: '16px', md: '18px' },
               lineHeight: 1.6,
               maxWidth: '600px',
               mx: 'auto',
-              opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.4s ease-out 0.1s'
             }}
@@ -2375,12 +2401,11 @@ function StatisticsSection() {
           <Typography 
             sx={{ 
               color: 'white', 
-              opacity: 0.9,
+              opacity: isVisible ? 0.9 : 0,
               fontSize: { xs: '16px', md: '18px' },
               lineHeight: 1.6,
               maxWidth: '600px',
               mx: 'auto',
-              opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.4s ease-out 0.1s'
             }}

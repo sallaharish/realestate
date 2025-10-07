@@ -11,7 +11,6 @@ const navItems = [
   { label: 'About Us', to: '/about' },
   { label: 'Projects', to: '/projects', hasDropdown: true },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Blog', to: '/blog' },
   { label: 'Contact Us', to: '/contact' },
 ]
 

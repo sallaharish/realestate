@@ -15,11 +15,10 @@ export default function RoyalGardens() {
 
   const galleryImages = [
     'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
   ];
 
   const [mainImage, setMainImage] = useState(galleryImages[0]);
@@ -121,93 +120,65 @@ export default function RoyalGardens() {
               maxWidth: '700px',
               mx: 'auto'
             }}>
-              Experience luxury living at its finest in Hyderabad's most prestigious residential development
+              Discover the perfect blend of luxury living and strategic location in Hyderabad's most prestigious corridor
             </Typography>
           </Box>
 
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
+          {/* Single Centered Image */}
+          <Box sx={{ mb: 6, textAlign: 'center' }}>
+            <Box sx={{
+              position: 'relative',
+              borderRadius: 4,
+              overflow: 'hidden',
+              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+              border: `3px solid ${gold}`,
+              maxWidth: '800px',
+              mx: 'auto',
+              transition: 'all 0.4s ease-out',
+              '&:hover': {
+                transform: 'scale(1.02)',
+                boxShadow: `0 35px 70px rgba(0,0,0,0.5), 0 0 40px ${gold}30`,
+                '& .overlay-text': {
+                  opacity: 1,
+                  transform: 'translateY(0)'
+                }
+              }
+            }}>
+              <img
+                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
+                alt="Royal Gardens Luxury Living"
+                style={{
+                  width: '100%',
+                  height: '400px',
+                  objectFit: 'cover'
+                }}
+              />
               <Box sx={{
-                position: 'relative',
-                borderRadius: 4,
-                overflow: 'hidden',
-                boxShadow: `0 20px 40px rgba(0,0,0,0.3)`,
-                mb: 4
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+                p: 3,
+                color: 'white',
+                opacity: 0,
+                transform: 'translateY(20px)',
+                transition: 'all 0.3s ease',
+                className: 'overlay-text'
               }}>
-                <img
-                  src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                  alt="Royal Gardens Project"
-                  style={{
-                    width: '100%',
-                    height: '300px',
-                    objectFit: 'cover'
-                  }}
-                />
-                <Box sx={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
-                  p: 3,
-                  color: 'white'
-                }}>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                    Luxury Living
-                  </Typography>
-                  <Typography sx={{ opacity: 0.9 }}>
-                    Premium development with world-class amenities
-                  </Typography>
-                </Box>
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                  Luxury Living
+                </Typography>
+                <Typography sx={{ opacity: 0.9 }}>
+                  Premium development with world-class amenities
+                </Typography>
               </Box>
-              
-              <Box sx={{ display: 'flex', gap: 2 }}>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                    alt="Luxury"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                    alt="Premium"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-              </Box>
-            </Grid>
-            
+            </Box>
+          </Box>
+
+          {/* Content Section - Two Column Layout */}
+          <Grid container spacing={6} alignItems="flex-start">
             <Grid item xs={12} md={6}>
-              <Typography variant="h3" sx={{ 
-                color: gold, 
-                fontWeight: 600, 
-                mb: 4,
-                fontSize: { xs: '1.8rem', md: '2.2rem' }
-              }}>
-                Luxury Living Excellence
-              </Typography>
               <Typography sx={{ 
                 color: 'white', 
                 fontSize: { xs: '1rem', md: '1.1rem' },
@@ -215,7 +186,7 @@ export default function RoyalGardens() {
                 mb: 3,
                 opacity: 0.9
               }}>
-                Royal Gardens represents the pinnacle of luxury residential development in Hyderabad. This prestigious project offers DTCP approved plots with world-class amenities, premium finishes, and exclusive lifestyle features.
+                Royal Gardens represents the pinnacle of luxury residential development in Hyderabad's fastest-growing corridor. This DTCP approved and RERA registered project offers meticulously planned plots with world-class infrastructure and premium amenities.
               </Typography>
               <Typography sx={{ 
                 color: 'white', 
@@ -224,22 +195,28 @@ export default function RoyalGardens() {
                 mb: 4,
                 opacity: 0.9
               }}>
-                With concierge services, private clubhouse, premium landscaping, and exclusive security, Royal Gardens offers an unparalleled luxury living experience for discerning homeowners.
+                With excellent connectivity to IT hubs, educational institutions, and healthcare facilities, Royal Gardens presents an ideal opportunity for both investors and end-users looking to build their dream luxury homes.
               </Typography>
-              
-              {/* Key Features */}
+            </Grid>
+            
+            <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 3 }}>
+                <Typography variant="h6" sx={{ 
+                  color: gold, 
+                  fontWeight: 600, 
+                  mb: 3,
+                  fontSize: { xs: '1.1rem', md: '1.3rem' }
+                }}>
                   Key Highlights
                 </Typography>
                 <Grid container spacing={2}>
                   {[
+                    'DTCP Approved Plots',
+                    'RERA Registered',
                     'Luxury Amenities',
-                    'Concierge Services',
-                    'Private Clubhouse',
-                    'Premium Landscaping',
-                    'Exclusive Security',
-                    'VIP Lifestyle'
+                    'Premium Location',
+                    'World-Class Infrastructure',
+                    'Investment Potential'
                   ].map((feature, index) => (
                     <Grid item xs={6} key={index}>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -352,116 +329,186 @@ export default function RoyalGardens() {
             </Box>
           </Box>
 
-          {/* Features Grid */}
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+          {/* Features Grid - Perfectly Centered & Uniform */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            width: '100%',
+            px: 2
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+              gap: 3,
+              maxWidth: '1200px',
+              width: '100%'
+            }}>
+              {/* Infrastructure */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
-                <Box sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: gold,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                  mb: 3
-                }}>
-                  <LocationOn sx={{ color: dark, fontSize: 30 }} />
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <LocationOn sx={{ fontSize: 24, color: dark }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Premium Infrastructure
+                  </Typography>
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
-                  Premium Infrastructure
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Wide roads, premium drainage, luxury lighting, premium water & electricity connections
                 </Typography>
               </Card>
-            </Grid>
-            
-            <Grid item xs={12} md={4}>
+
+              {/* Amenities */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
-                <Box sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: gold,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                  mb: 3
-                }}>
-                  <Star sx={{ color: dark, fontSize: 30 }} />
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <Star sx={{ fontSize: 24, color: dark }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Luxury Amenities
+                  </Typography>
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
-                  Luxury Amenities
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Private clubhouse, concierge services, premium landscaping, exclusive security
                 </Typography>
               </Card>
-            </Grid>
-            
-            <Grid item xs={12} md={4}>
+
+              {/* Quality Assurance */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
-                <Box sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: gold,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                  mb: 3
-                }}>
-                  <CheckCircle sx={{ color: dark, fontSize: 30 }} />
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <CheckCircle sx={{ fontSize: 24, color: dark }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Premium Quality
+                  </Typography>
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
-                  Premium Quality
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   DTCP approved, RERA registered, premium materials, luxury construction standards
                 </Typography>
               </Card>
-            </Grid>
-          </Grid>
+
+              {/* Investment Potential */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 3,
+                height: '300px',
+                width: '100%',
+                textAlign: 'center',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
+                }
+              }}>
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <Business sx={{ fontSize: 24, color: dark }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Investment Potential
+                  </Typography>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
+                  Prime location, excellent connectivity, high appreciation potential
+                </Typography>
+              </Card>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
@@ -486,32 +533,60 @@ export default function RoyalGardens() {
           <Typography variant="h3" sx={{ color: gold, fontWeight: 600, mb: 6, textAlign: 'center' }}>
             Project Gallery
           </Typography>
-          <Box sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 3
-          }}>
-            <Box sx={{ flex: 1, borderRadius: 4, overflow: 'hidden', boxShadow: `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${gold}40` }}>
-              <img src={mainImage} alt="Main Project View" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          
+          {/* Main Image */}
+          <Box sx={{ mb: 4, textAlign: 'center' }}>
+            <Box sx={{
+              borderRadius: 4,
+              overflow: 'hidden',
+              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+              maxWidth: '1000px',
+              mx: 'auto',
+              height: '500px'
+            }}>
+              <img 
+                src={mainImage} 
+                alt="Main Project View" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  display: 'block' 
+                }} 
+              />
             </Box>
-            <Grid container spacing={2} sx={{ flex: { xs: 'none', md: '0 0 250px' } }}>
+          </Box>
+
+          {/* Thumbnail Grid */}
+          <Box sx={{ maxWidth: '1000px', mx: 'auto' }}>
+            <Grid container spacing={2}>
               {galleryImages.map((image, index) => (
-                <Grid item xs={4} md={12} key={index}>
+                <Grid item xs={12/5} key={index}>
                   <Box
                     sx={{
                       borderRadius: 2,
                       overflow: 'hidden',
                       cursor: 'pointer',
-                      border: mainImage === image ? `2px solid ${gold}` : '2px solid transparent',
-                      transition: 'border 0.3s ease',
+                      border: mainImage === image ? `3px solid ${gold}` : '3px solid transparent',
+                      transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'scale(1.05)',
-                        boxShadow: `0 5px 15px rgba(0,0,0,0.3)`
+                        boxShadow: `0 10px 25px rgba(0,0,0,0.3)`,
+                        border: `3px solid ${gold}`
                       }
                     }}
                     onClick={() => setMainImage(image)}
                   >
-                    <img src={image} alt={`Thumbnail ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img 
+                      src={image} 
+                      alt={`Thumbnail ${index + 1}`} 
+                      style={{ 
+                        width: '100%', 
+                        height: '120px', 
+                        objectFit: 'cover',
+                        display: 'block' 
+                      }} 
+                    />
                   </Box>
                 </Grid>
               ))}
@@ -603,28 +678,35 @@ export default function RoyalGardens() {
           </Box>
 
           {/* Location Cards Grid */}
-          <Grid container spacing={3}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: { xs: 'repeat(5, 1fr)' },
+            gap: 3,
+            maxWidth: '1000px',
+            mx: 'auto'
+          }}>
             {[
-              { name: 'HITEC City', distance: '12 km', time: '20 mins', icon: <Business />, category: 'IT Hub' },
-              { name: 'Gachibowli', distance: '10 km', time: '18 mins', icon: <Business />, category: 'IT Hub' },
               { name: 'Airport', distance: '30 km', time: '40 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Railway Station', distance: '6 km', time: '12 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Schools', distance: '1 km', time: '3 mins', icon: <Star />, category: 'Education' },
-              { name: 'Hospitals', distance: '4 km', time: '8 mins', icon: <Star />, category: 'Healthcare' }
+              { name: 'Hospitals', distance: '4 km', time: '8 mins', icon: <Star />, category: 'Healthcare' },
+              { name: 'Shopping Mall', distance: '5 km', time: '10 mins', icon: <Star />, category: 'Shopping' }
             ].map((location, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card sx={{
-                  background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
-                  border: `2px solid ${gold}`,
-                  borderRadius: 4,
-                  p: 3,
-                  height: '100%',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: `0 15px 30px rgba(0,0,0,0.3), 0 0 20px ${gold}40`
-                  }
-                }}>
+              <Card key={index} sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 3,
+                height: '180px',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: `0 15px 30px rgba(0,0,0,0.3), 0 0 20px ${gold}40`
+                }
+              }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                     <Box sx={{
                       width: 40,
@@ -657,9 +739,8 @@ export default function RoyalGardens() {
                     </Typography>
                   </Box>
                 </Card>
-              </Grid>
             ))}
-          </Grid>
+          </Box>
 
           {/* Connectivity Info */}
           <Box sx={{ mt: 6, textAlign: 'center' }}>
@@ -741,7 +822,7 @@ export default function RoyalGardens() {
         </Container>
       </Box>
 
-      {/* Request a Phone Call Section */}
+      {/* GET IN TOUCH Section */}
       <Box sx={{
         bgcolor: dark,
         color: 'white',
@@ -759,109 +840,203 @@ export default function RoyalGardens() {
         }
       }}>
         <Container>
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Typography variant="h3" sx={{ color: gold, fontWeight: 600, mb: 3 }}>
-                Request a Call Back
-              </Typography>
-              <Typography sx={{ color: 'white', opacity: 0.9, lineHeight: 1.8, mb: 4 }}>
-                Fill out the form below and our expert team will get in touch with you shortly to discuss Royal Gardens plots.
-              </Typography>
-              <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                <TextField
-                  placeholder="Your Name"
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '& fieldset': { borderColor: gold, }, '&:hover fieldset': { borderColor: gold, }, '&.Mui-focused fieldset': { borderColor: gold, }, },
-                    '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1, }
-                  }}
-                />
-                <TextField
-                  placeholder="Your Phone Number"
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '& fieldset': { borderColor: gold, }, '&:hover fieldset': { borderColor: gold, }, '&.Mui-focused fieldset': { borderColor: gold, }, },
-                    '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1, }
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  sx={{
-                    bgcolor: gold,
-                    color: dark,
-                    fontWeight: 600,
-                    py: 2,
-                    fontSize: '16px',
-                    '&:hover': { bgcolor: '#d4943a' }
-                  }}
-                >
-                  Request Call Back
-                </Button>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                p: 4,
-                bgcolor: 'rgba(224, 161, 70, 0.1)',
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Typography variant="h2" sx={{
+              color: gold,
+              fontWeight: 400,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              mb: 4,
+              fontFamily: '"Playfair Display", serif',
+              letterSpacing: '0.05em',
+              lineHeight: 1.2
+            }}>
+              GET IN TOUCH
+            </Typography>
+            <Typography sx={{
+              color: 'white',
+              opacity: 0.9,
+              fontSize: { xs: '16px', md: '18px' },
+              lineHeight: 1.6,
+              maxWidth: '600px',
+              mx: 'auto'
+            }}>
+              Ready to invest in Royal Gardens? Get in touch with our expert team today
+            </Typography>
+          </Box>
+
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'stretch',
+            width: '100%',
+            px: 2,
+            gap: 3
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+              gap: 3,
+              maxWidth: '1000px',
+              width: '100%'
+            }}>
+              {/* Request Call Back Card */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                boxShadow: `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${gold}40`
+                p: 4,
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
               }}>
-                <IconButton sx={{ bgcolor: gold, '&:hover': { bgcolor: '#d4943a' }, mb: 2 }}>
-                  <WhatsApp sx={{ fontSize: 40, color: dark }} />
-                </IconButton>
-                <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 1 }}>
-                  Chat on WhatsApp
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
-                  Connect with us instantly for quick queries.
-                </Typography>
-                <Button
-                  variant="contained"
-                  startIcon={<WhatsApp />}
-                  href="https://wa.me/919902651666"
-                  target="_blank"
-                  sx={{
-                    bgcolor: '#25D366',
-                    color: 'white',
-                    fontWeight: 600,
-                    '&:hover': { bgcolor: '#1DA851' }
-                  }}
-                >
-                  WhatsApp Us
-                </Button>
-                <Divider sx={{ width: '80%', my: 4, borderColor: 'rgba(255,255,255,0.2)' }} />
-                <IconButton sx={{ bgcolor: gold, '&:hover': { bgcolor: '#d4943a' }, mb: 2 }}>
-                  <Call sx={{ fontSize: 40, color: dark }} />
-                </IconButton>
-                <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 1 }}>
-                  Direct Call
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
-                  Speak to our sales team directly.
-                </Typography>
-                <Button
-                  variant="contained"
-                  startIcon={<Phone />}
-                  href="tel:+919902651666"
-                  sx={{
-                    bgcolor: gold,
-                    color: dark,
-                    fontWeight: 600,
-                    '&:hover': { bgcolor: '#d4943a' }
-                  }}
-                >
-                  Call Now
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
+                <Box>
+                  <Phone sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                  <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                    Request a Call Back
+                  </Typography>
+                  <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
+                    Fill out the form and our expert team will contact you shortly
+                  </Typography>
+                  
+                  <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <TextField
+                      placeholder="Your Name"
+                      variant="outlined"
+                      fullWidth
+                      sx={{
+                        '& .MuiOutlinedInput-root': { 
+                          bgcolor: 'rgba(255,255,255,0.1)', 
+                          color: 'white', 
+                          '& fieldset': { borderColor: gold }, 
+                          '&:hover fieldset': { borderColor: gold }, 
+                          '&.Mui-focused fieldset': { borderColor: gold }
+                        },
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
+                      }}
+                    />
+                    <TextField
+                      placeholder="Your Phone Number"
+                      variant="outlined"
+                      fullWidth
+                      sx={{
+                        '& .MuiOutlinedInput-root': { 
+                          bgcolor: 'rgba(255,255,255,0.1)', 
+                          color: 'white', 
+                          '& fieldset': { borderColor: gold }, 
+                          '&:hover fieldset': { borderColor: gold }, 
+                          '&.Mui-focused fieldset': { borderColor: gold }
+                        },
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
+                      }}
+                    />
+                  </Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      bgcolor: gold,
+                      color: dark,
+                      fontWeight: 600,
+                      py: 2,
+                      fontSize: '16px',
+                      '&:hover': { bgcolor: '#d4943a' }
+                    }}
+                  >
+                    Request Call Back
+                  </Button>
+                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                    We'll call you within 30 minutes
+                  </Typography>
+                </Box>
+              </Card>
+
+              {/* Contact & Information Card */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 4,
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
+              }}>
+                <Box>
+                  <WhatsApp sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                  <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                    Contact & Information
+                  </Typography>
+                  <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
+                    Multiple ways to connect with us for instant support
+                  </Typography>
+                  
+                  {/* Contact Options */}
+                  <Box sx={{ mb: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Direct Call: +91 99026 51666
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Email sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Email: info@suryaprimeventures.com
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <LocationOn sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Office: Hyderabad, Telangana
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      bgcolor: '#25D366',
+                      color: 'white',
+                      fontWeight: 600,
+                      py: 2,
+                      fontSize: '16px',
+                      '&:hover': { bgcolor: '#128C7E' }
+                    }}
+                  >
+                    Chat on WhatsApp
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      borderColor: gold,
+                      color: gold,
+                      fontWeight: 600,
+                      py: 1.5,
+                      fontSize: '14px',
+                      '&:hover': { 
+                        borderColor: gold,
+                        bgcolor: 'rgba(224, 161, 70, 0.1)'
+                      }
+                    }}
+                  >
+                    Schedule Site Visit
+                  </Button>
+                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                    Available 9 AM - 7 PM (Mon-Sat)
+                  </Typography>
+                </Box>
+              </Card>
+            </Box>
+          </Box>
         </Container>
       </Box>
     </Box>

@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography, Button, Card, CardContent, TextField, Accordion, AccordionSummary, AccordionDetails, Avatar, IconButton, Divider } from '@mui/material'
 import { ExpandMore, LocationOn, Email, Phone, Star, CheckCircle, WhatsApp, Call, ArrowForward, Business } from '@mui/icons-material'
 import Navbar from '../components/Navbar'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GreenValley() {
@@ -15,11 +15,10 @@ export default function GreenValley() {
 
   const galleryImages = [
     'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
   ];
 
   const [mainImage, setMainImage] = useState(galleryImages[0]);
@@ -121,25 +120,36 @@ export default function GreenValley() {
               maxWidth: '700px',
               mx: 'auto'
             }}>
-              Experience sustainable living in harmony with nature in Hyderabad's greenest residential development
+              Discover the perfect blend of sustainable living and strategic location in Hyderabad's greenest corridor
             </Typography>
           </Box>
 
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
+          {/* Single Centered Image */}
+          <Box sx={{ mb: 6, textAlign: 'center' }}>
               <Box sx={{
                 position: 'relative',
                 borderRadius: 4,
                 overflow: 'hidden',
-                boxShadow: `0 20px 40px rgba(0,0,0,0.3)`,
-                mb: 4
+              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+              border: `3px solid ${gold}`,
+              maxWidth: '800px',
+              mx: 'auto',
+              transition: 'all 0.4s ease-out',
+              '&:hover': {
+                transform: 'scale(1.02)',
+                boxShadow: `0 35px 70px rgba(0,0,0,0.5), 0 0 40px ${gold}30`,
+                '& .overlay-text': {
+                  opacity: 1,
+                  transform: 'translateY(0)'
+                }
+              }
               }}>
                 <img
                   src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
-                  alt="Green Valley Project"
+                alt="Green Valley Sustainable Living"
                   style={{
                     width: '100%',
-                    height: '300px',
+                  height: '400px',
                     objectFit: 'cover'
                   }}
                 />
@@ -150,7 +160,11 @@ export default function GreenValley() {
                   right: 0,
                   background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
                   p: 3,
-                  color: 'white'
+                color: 'white',
+                opacity: 0,
+                transform: 'translateY(20px)',
+                transition: 'all 0.3s ease',
+                className: 'overlay-text'
                 }}>
                   <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                     Eco-Friendly Living
@@ -160,54 +174,11 @@ export default function GreenValley() {
                   </Typography>
                 </Box>
               </Box>
-              
-              <Box sx={{ display: 'flex', gap: 2 }}>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
-                    alt="Nature"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
                 </Box>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
-                    alt="Green Spaces"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-              </Box>
-            </Grid>
-            
+
+          {/* Content Section - Two Column Layout */}
+          <Grid container spacing={6} alignItems="flex-start">
             <Grid item xs={12} md={6}>
-              <Typography variant="h3" sx={{ 
-                color: gold, 
-                fontWeight: 600, 
-                mb: 4,
-                fontSize: { xs: '1.8rem', md: '2.2rem' }
-              }}>
-                Sustainable Living Excellence
-              </Typography>
               <Typography sx={{ 
                 color: 'white', 
                 fontSize: { xs: '1rem', md: '1.1rem' },
@@ -215,7 +186,7 @@ export default function GreenValley() {
                 mb: 3,
                 opacity: 0.9
               }}>
-                Green Valley represents the future of sustainable residential development in Hyderabad. This eco-friendly project combines modern living with environmental consciousness, offering DTCP approved plots surrounded by lush green spaces.
+                Green Valley represents the pinnacle of sustainable residential development in Hyderabad's fastest-growing corridor. This DTCP approved and RERA registered project offers meticulously planned plots with world-class eco-friendly infrastructure and amenities.
               </Typography>
               <Typography sx={{ 
                 color: 'white', 
@@ -224,22 +195,28 @@ export default function GreenValley() {
                 mb: 4,
                 opacity: 0.9
               }}>
-                With solar-powered street lighting, rainwater harvesting, and extensive green cover, Green Valley offers a unique opportunity to live in harmony with nature while enjoying all modern conveniences.
+                With excellent connectivity to IT hubs, educational institutions, and healthcare facilities, Green Valley presents an ideal opportunity for both investors and end-users looking to build their dream homes in harmony with nature.
               </Typography>
+            </Grid>
               
-              {/* Key Features */}
+            <Grid item xs={12} md={6}>
               <Box sx={{ mb: 4 }}>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 3 }}>
+                <Typography variant="h6" sx={{ 
+                  color: gold, 
+                  fontWeight: 600, 
+                  mb: 3,
+                  fontSize: { xs: '1.1rem', md: '1.3rem' }
+                }}>
                   Key Highlights
                 </Typography>
                 <Grid container spacing={2}>
                   {[
+                    'DTCP Approved Plots',
+                    'RERA Registered',
                     'Eco-Friendly Design',
                     'Solar Street Lighting',
                     'Rainwater Harvesting',
-                    'Green Landscaping',
-                    'Sustainable Materials',
-                    'Nature Integration'
+                    'Green Landscaping'
                   ].map((feature, index) => (
                     <Grid item xs={6} key={index}>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -352,116 +329,186 @@ export default function GreenValley() {
             </Box>
           </Box>
 
-          {/* Features Grid */}
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+          {/* Features Grid - Perfectly Centered & Uniform */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            width: '100%',
+            px: 2
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+              gap: 3,
+              maxWidth: '1200px',
+              width: '100%'
+            }}>
+              {/* Infrastructure */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <LocationOn sx={{ color: dark, fontSize: 30 }} />
+                    <LocationOn sx={{ fontSize: 24, color: dark }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Green Infrastructure
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Solar lighting, rainwater harvesting, eco-friendly materials, green roads
                 </Typography>
               </Card>
-            </Grid>
             
-            <Grid item xs={12} md={4}>
+              {/* Amenities */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <Star sx={{ color: dark, fontSize: 30 }} />
+                    <Star sx={{ fontSize: 24, color: dark }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Natural Amenities
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Green parks, walking trails, organic gardens, nature conservation areas
                 </Typography>
               </Card>
-            </Grid>
             
-            <Grid item xs={12} md={4}>
+              {/* Quality Assurance */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
                 transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-10px)',
                   boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
                 }
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <CheckCircle sx={{ color: dark, fontSize: 30 }} />
+                    <CheckCircle sx={{ fontSize: 24, color: dark }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Sustainability
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Carbon neutral design, renewable energy, waste management, environmental protection
                 </Typography>
               </Card>
-            </Grid>
-          </Grid>
+
+              {/* Investment Potential */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 3,
+                height: '300px',
+                width: '100%',
+                textAlign: 'center',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
+                }
+              }}>
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <Business sx={{ fontSize: 24, color: dark }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Investment Potential
+                  </Typography>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
+                  Prime location, excellent connectivity, high appreciation potential
+                </Typography>
+              </Card>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
@@ -486,32 +533,61 @@ export default function GreenValley() {
           <Typography variant="h3" sx={{ color: gold, fontWeight: 600, mb: 6, textAlign: 'center' }}>
             Project Gallery
           </Typography>
+          {/* Main Image */}
+          <Box sx={{ mb: 4, textAlign: 'center' }}>
           <Box sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 3
-          }}>
-            <Box sx={{ flex: 1, borderRadius: 4, overflow: 'hidden', boxShadow: `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${gold}40` }}>
-              <img src={mainImage} alt="Main Project View" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              position: 'relative',
+              borderRadius: 4,
+              overflow: 'hidden',
+              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+              border: `3px solid ${gold}`,
+              maxWidth: '1000px',
+              mx: 'auto',
+              height: '500px'
+            }}>
+              <img 
+                src={mainImage} 
+                alt="Main Project View" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  display: 'block' 
+                }} 
+              />
             </Box>
-            <Grid container spacing={2} sx={{ flex: { xs: 'none', md: '0 0 250px' } }}>
+          </Box>
+
+          {/* Thumbnail Grid */}
+          <Box sx={{ maxWidth: '1000px', mx: 'auto' }}>
+            <Grid container spacing={2}>
               {galleryImages.map((image, index) => (
-                <Grid item xs={4} md={12} key={index}>
+                <Grid item xs={12/5} key={index}>
                   <Box
                     sx={{
                       borderRadius: 2,
                       overflow: 'hidden',
                       cursor: 'pointer',
-                      border: mainImage === image ? `2px solid ${gold}` : '2px solid transparent',
-                      transition: 'border 0.3s ease',
+                      border: mainImage === image ? `3px solid ${gold}` : '3px solid transparent',
+                      transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'scale(1.05)',
-                        boxShadow: `0 5px 15px rgba(0,0,0,0.3)`
+                        boxShadow: `0 10px 25px rgba(0,0,0,0.3)`,
+                        border: `3px solid ${gold}`
                       }
                     }}
                     onClick={() => setMainImage(image)}
                   >
-                    <img src={image} alt={`Thumbnail ${index + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    <img 
+                      src={image} 
+                      alt={`Thumbnail ${index + 1}`} 
+                      style={{ 
+                        width: '100%', 
+                        height: '120px', 
+                        objectFit: 'cover',
+                        display: 'block' 
+                      }} 
+                    />
                   </Box>
                 </Grid>
               ))}
@@ -603,23 +679,30 @@ export default function GreenValley() {
           </Box>
 
           {/* Location Cards Grid */}
-          <Grid container spacing={3}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: { xs: 'repeat(5, 1fr)' },
+            gap: 3,
+            maxWidth: '1000px',
+            mx: 'auto'
+          }}>
             {[
-              { name: 'HITEC City', distance: '18 km', time: '30 mins', icon: <Business />, category: 'IT Hub' },
-              { name: 'Gachibowli', distance: '15 km', time: '25 mins', icon: <Business />, category: 'IT Hub' },
               { name: 'Airport', distance: '40 km', time: '50 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Railway Station', distance: '10 km', time: '18 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Schools', distance: '3 km', time: '8 mins', icon: <Star />, category: 'Education' },
-              { name: 'Hospitals', distance: '6 km', time: '12 mins', icon: <Star />, category: 'Healthcare' }
+              { name: 'Hospitals', distance: '6 km', time: '12 mins', icon: <Star />, category: 'Healthcare' },
+              { name: 'Shopping Mall', distance: '8 km', time: '15 mins', icon: <Star />, category: 'Shopping' }
             ].map((location, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card sx={{
+              <Card key={index} sx={{
                   background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                   border: `2px solid ${gold}`,
                   borderRadius: 4,
                   p: 3,
-                  height: '100%',
+                height: '180px',
                   transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                   '&:hover': {
                     transform: 'translateY(-5px)',
                     boxShadow: `0 15px 30px rgba(0,0,0,0.3), 0 0 20px ${gold}40`
@@ -657,9 +740,8 @@ export default function GreenValley() {
                     </Typography>
                   </Box>
                 </Card>
-              </Grid>
             ))}
-          </Grid>
+          </Box>
 
           {/* Connectivity Info */}
           <Box sx={{ mt: 6, textAlign: 'center' }}>
@@ -741,7 +823,7 @@ export default function GreenValley() {
         </Container>
       </Box>
 
-      {/* Request a Phone Call Section */}
+      {/* GET IN TOUCH Section */}
       <Box sx={{
         bgcolor: dark,
         color: 'white',
@@ -759,22 +841,81 @@ export default function GreenValley() {
         }
       }}>
         <Container>
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Typography variant="h3" sx={{ color: gold, fontWeight: 600, mb: 3 }}>
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Typography variant="h2" sx={{
+              color: gold,
+              fontWeight: 400,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              mb: 4,
+              fontFamily: '"Playfair Display", serif',
+              letterSpacing: '0.05em',
+              lineHeight: 1.2
+            }}>
+              GET IN TOUCH
+            </Typography>
+            <Typography sx={{
+              color: 'white',
+              opacity: 0.9,
+              fontSize: { xs: '16px', md: '18px' },
+              lineHeight: 1.6,
+              maxWidth: '600px',
+              mx: 'auto'
+            }}>
+              Ready to invest in Green Valley? Get in touch with our expert team today
+            </Typography>
+          </Box>
+
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'stretch',
+            width: '100%',
+            px: 2,
+            gap: 3
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+              gap: 3,
+              maxWidth: '1000px',
+              width: '100%'
+            }}>
+              {/* Request Call Back Card */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 4,
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
+              }}>
+                <Box>
+                  <Phone sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                  <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
                 Request a Call Back
               </Typography>
-              <Typography sx={{ color: 'white', opacity: 0.9, lineHeight: 1.8, mb: 4 }}>
-                Fill out the form below and our expert team will get in touch with you shortly to discuss Green Valley plots.
+                  <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
+                    Fill out the form and our expert team will contact you shortly
               </Typography>
-              <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  
+                  <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <TextField
                   placeholder="Your Name"
                   variant="outlined"
                   fullWidth
                   sx={{
-                    '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '& fieldset': { borderColor: gold, }, '&:hover fieldset': { borderColor: gold, }, '&.Mui-focused fieldset': { borderColor: gold, }, },
-                    '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1, }
+                        '& .MuiOutlinedInput-root': { 
+                          bgcolor: 'rgba(255,255,255,0.1)', 
+                          color: 'white', 
+                          '& fieldset': { borderColor: gold }, 
+                          '&:hover fieldset': { borderColor: gold }, 
+                          '&.Mui-focused fieldset': { borderColor: gold }
+                        },
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
                   }}
                 />
                 <TextField
@@ -782,10 +923,20 @@ export default function GreenValley() {
                   variant="outlined"
                   fullWidth
                   sx={{
-                    '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.1)', color: 'white', '& fieldset': { borderColor: gold, }, '&:hover fieldset': { borderColor: gold, }, '&.Mui-focused fieldset': { borderColor: gold, }, },
-                    '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1, }
-                  }}
-                />
+                        '& .MuiOutlinedInput-root': { 
+                          bgcolor: 'rgba(255,255,255,0.1)', 
+                          color: 'white', 
+                          '& fieldset': { borderColor: gold }, 
+                          '&:hover fieldset': { borderColor: gold }, 
+                          '&.Mui-focused fieldset': { borderColor: gold }
+                        },
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
+                      }}
+                    />
+                  </Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -799,69 +950,94 @@ export default function GreenValley() {
                 >
                   Request Call Back
                 </Button>
+                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                    We'll call you within 30 minutes
+                  </Typography>
               </Box>
-            </Grid>
-            <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                p: 4,
-                bgcolor: 'rgba(224, 161, 70, 0.1)',
+              </Card>
+
+              {/* Contact & Information Card */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                boxShadow: `0 10px 30px rgba(0,0,0,0.5), 0 0 20px ${gold}40`
+                p: 4,
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
               }}>
-                <IconButton sx={{ bgcolor: gold, '&:hover': { bgcolor: '#d4943a' }, mb: 2 }}>
-                  <WhatsApp sx={{ fontSize: 40, color: dark }} />
-                </IconButton>
-                <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 1 }}>
-                  Chat on WhatsApp
+                <Box>
+                  <WhatsApp sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                  <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                    Contact & Information
                 </Typography>
                 <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
-                  Connect with us instantly for quick queries.
+                    Multiple ways to connect with us for instant support
                 </Typography>
+                  
+                  {/* Contact Options */}
+                  <Box sx={{ mb: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Direct Call: +91 99026 51666
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Email sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Email: info@suryaprimeventures.com
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <LocationOn sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Office: Hyderabad, Telangana
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                   variant="contained"
-                  startIcon={<WhatsApp />}
-                  href="https://wa.me/919902651666"
-                  target="_blank"
                   sx={{
                     bgcolor: '#25D366',
                     color: 'white',
                     fontWeight: 600,
-                    '&:hover': { bgcolor: '#1DA851' }
+                      py: 2,
+                      fontSize: '16px',
+                      '&:hover': { bgcolor: '#128C7E' }
                   }}
                 >
-                  WhatsApp Us
+                    Chat on WhatsApp
                 </Button>
-                <Divider sx={{ width: '80%', my: 4, borderColor: 'rgba(255,255,255,0.2)' }} />
-                <IconButton sx={{ bgcolor: gold, '&:hover': { bgcolor: '#d4943a' }, mb: 2 }}>
-                  <Call sx={{ fontSize: 40, color: dark }} />
-                </IconButton>
-                <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 1 }}>
-                  Direct Call
-                </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
-                  Speak to our sales team directly.
-                </Typography>
                 <Button
-                  variant="contained"
-                  startIcon={<Phone />}
-                  href="tel:+919902651666"
+                    variant="outlined"
                   sx={{
-                    bgcolor: gold,
-                    color: dark,
+                      borderColor: gold,
+                      color: gold,
                     fontWeight: 600,
-                    '&:hover': { bgcolor: '#d4943a' }
-                  }}
-                >
-                  Call Now
+                      py: 1.5,
+                      fontSize: '14px',
+                      '&:hover': { 
+                        borderColor: gold,
+                        bgcolor: 'rgba(224, 161, 70, 0.1)'
+                      }
+                    }}
+                  >
+                    Schedule Site Visit
                 </Button>
+                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                    Available 9 AM - 7 PM (Mon-Sat)
+                  </Typography>
               </Box>
-            </Grid>
-          </Grid>
+              </Card>
+            </Box>
+          </Box>
         </Container>
       </Box>
     </Box>

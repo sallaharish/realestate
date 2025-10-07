@@ -32,6 +32,9 @@ export default function Suketana() {
         bgcolor: dark,
         color: 'white',
         position: 'relative',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -39,11 +42,22 @@ export default function Suketana() {
           left: 0,
           right: 0,
           bottom: 0,
+          bgcolor: 'rgba(0,0,0,0.7)',
+          zIndex: 1
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          zIndex: 2
         }
       }}>
-        <Container sx={{ position: 'relative', zIndex: 1 }}>
+        <Container sx={{ position: 'relative', zIndex: 3 }}>
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography variant="h1" sx={{ 
               color: gold, 
@@ -76,7 +90,8 @@ export default function Suketana() {
       </Box>
 
       {/* Project Description Section */}
-      <Box sx={{ 
+      <Box 
+        sx={{ 
         py: 8, 
         bgcolor: dark,
         color: 'white',
@@ -93,7 +108,10 @@ export default function Suketana() {
         }
       }}>
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Box sx={{ 
+            textAlign: 'center', 
+            mb: 6
+          }}>
             <Typography variant="h2" sx={{
               color: gold,
               fontWeight: 400,
@@ -117,21 +135,26 @@ export default function Suketana() {
             </Typography>
           </Box>
 
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
+          {/* Single Centered Image */}
+          <Box sx={{ 
+            mb: 6, 
+            textAlign: 'center'
+          }}>
               <Box sx={{
                 position: 'relative',
                 borderRadius: 4,
                 overflow: 'hidden',
-                boxShadow: `0 20px 40px rgba(0,0,0,0.3)`,
-                mb: 4
+              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+              border: `3px solid ${gold}`,
+              maxWidth: '800px',
+              mx: 'auto'
               }}>
                 <img
                   src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop"
                   alt="Suketana Project"
                   style={{
                     width: '100%',
-                    height: '300px',
+                  height: '400px',
                     objectFit: 'cover'
                   }}
                 />
@@ -152,46 +175,10 @@ export default function Suketana() {
                   </Typography>
                 </Box>
               </Box>
-              
-              <Box sx={{ display: 'flex', gap: 2 }}>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1570129477492-45c00371b117?q=80&w=1000&auto=format&fit=crop"
-                    alt="Infrastructure"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
                 </Box>
-                <Box sx={{
-                  flex: 1,
-                  position: 'relative',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  boxShadow: `0 15px 30px rgba(0,0,0,0.2)`
-                }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                    alt="Development"
-                    style={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-              </Box>
-            </Grid>
-            
-            <Grid item xs={12} md={6}>
+
+          {/* Content Section - Original Layout */}
+          <Box sx={{ textAlign: 'left' }}>
               <Typography variant="h3" sx={{ 
                 color: gold, 
                 fontWeight: 600, 
@@ -258,13 +245,13 @@ export default function Suketana() {
                   Download Brochure
                 </Button>
               </Box>
-            </Grid>
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
       {/* Layout Section */}
-      <Box sx={{
+      <Box 
+        sx={{
         bgcolor: dark,
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -277,7 +264,7 @@ export default function Suketana() {
           right: 0,
           bottom: 0,
           background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none'
+            pointerEvents: 'none'
         }
       }}>
         <Container>
@@ -312,153 +299,225 @@ export default function Suketana() {
               borderRadius: 4,
               overflow: 'hidden',
               boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
-              maxWidth: '900px',
-              mx: 'auto'
+              maxWidth: '1000px',
+              mx: 'auto',
+              border: `3px solid ${gold}`
             }}>
               <img
-                src="https://images.unsplash.com/photo-1570129477492-45c00371b117?q=80&w=1000&auto=format&fit=crop"
-                alt="Master Plan"
+                src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop"
+                alt="Suketana Master Plan"
                 style={{
                   width: '100%',
-                  height: '500px',
-                  objectFit: 'cover'
+                  height: '600px',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop';
                 }}
               />
               <Box sx={{
                 position: 'absolute',
                 top: 20,
                 right: 20,
-                bgcolor: 'rgba(0,0,0,0.8)',
+                bgcolor: 'rgba(0,0,0,0.9)',
+                borderRadius: 3,
+                p: 3,
+                color: 'white',
+                backdropFilter: 'blur(10px)',
+                border: `2px solid ${gold}`
+              }}>
+                <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, color: gold }}>
+                  Master Plan
+                </Typography>
+                <Typography sx={{ fontSize: '16px', opacity: 0.9 }}>
+                  Comprehensive Development Layout
+                </Typography>
+              </Box>
+              <Box sx={{
+                position: 'absolute',
+                bottom: 20,
+                left: 20,
+                bgcolor: 'rgba(0,0,0,0.9)',
                 borderRadius: 3,
                 p: 2,
                 color: 'white',
-                backdropFilter: 'blur(10px)'
+                backdropFilter: 'blur(10px)',
+                border: `2px solid ${gold}`
               }}>
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Master Plan
-                </Typography>
                 <Typography sx={{ fontSize: '14px', opacity: 0.9 }}>
-                  Comprehensive Development Layout
+                  Suketana Development Plan
                 </Typography>
               </Box>
             </Box>
           </Box>
 
-          {/* Features Grid */}
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+          {/* Features Grid - Perfectly Centered & Uniform */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            width: '100%',
+            px: 2
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+              gap: 3,
+              maxWidth: '1200px',
+              width: '100%'
+            }}>
+              {/* Infrastructure */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-10px)',
-                  boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
-                }
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <LocationOn sx={{ color: dark, fontSize: 30 }} />
+                    <LocationOn sx={{ color: dark, fontSize: 25 }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Infrastructure
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Wide roads, underground drainage, street lighting, water & electricity connections
                 </Typography>
               </Card>
-            </Grid>
             
-            <Grid item xs={12} md={4}>
+              {/* Amenities */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-10px)',
-                  boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
-                }
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <Star sx={{ color: dark, fontSize: 30 }} />
+                    <Star sx={{ color: dark, fontSize: 25 }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Amenities
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   Green spaces, parks, security surveillance, clubhouse facilities
                 </Typography>
               </Card>
-            </Grid>
             
-            <Grid item xs={12} md={4}>
+              {/* Quality Assurance */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
-                p: 4,
-                height: '100%',
+                p: 3,
+                height: '300px',
+                width: '100%',
                 textAlign: 'center',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-10px)',
-                  boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 30px ${gold}40`
-                }
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
               }}>
+                <Box>
                 <Box sx={{
-                  width: 60,
-                  height: 60,
+                    width: 50,
+                    height: 50,
                   borderRadius: '50%',
                   bgcolor: gold,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   mx: 'auto',
-                  mb: 3
+                    mb: 2
                 }}>
-                  <CheckCircle sx={{ color: dark, fontSize: 30 }} />
+                    <CheckCircle sx={{ color: dark, fontSize: 25 }} />
                 </Box>
-                <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
                   Quality Assurance
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px', lineHeight: 1.6 }}>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
                   DTCP approved, RERA registered, quality materials, professional construction
                 </Typography>
               </Card>
-            </Grid>
-          </Grid>
+
+              {/* Investment Potential */}
+              <Card sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${gold}`,
+                borderRadius: 4,
+                p: 3,
+                height: '300px',
+                width: '100%',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
+                <Box>
+                  <Box sx={{
+                    width: 50,
+                    height: 50,
+                    borderRadius: '50%',
+                    bgcolor: gold,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                    mb: 2
+                  }}>
+                    <Timeline sx={{ color: dark, fontSize: 25 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 2, fontSize: '18px' }}>
+                    Investment Potential
+                  </Typography>
+                </Box>
+                <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '15px', lineHeight: 1.5 }}>
+                  High ROI potential, strategic location, growing infrastructure, future development plans
+                </Typography>
+              </Card>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
       {/* Gallery Section */}
-      <Box sx={{
+      <Box 
+        sx={{
         bgcolor: dark,
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -545,12 +604,7 @@ export default function Suketana() {
                     borderRadius: 2,
                     overflow: 'hidden',
                     cursor: 'pointer',
-                    border: selectedImage === index ? `3px solid ${gold}` : '3px solid transparent',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                      border: `3px solid ${gold}`
-                    }
+                    border: selectedImage === index ? `3px solid ${gold}` : '3px solid transparent'
                   }}
                 >
                   <img
@@ -570,7 +624,8 @@ export default function Suketana() {
       </Box>
 
       {/* Location Highlights Section */}
-      <Box sx={{
+      <Box 
+        sx={{
         bgcolor: dark,
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -583,7 +638,7 @@ export default function Suketana() {
           right: 0,
           bottom: 0,
           background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none'
+            pointerEvents: 'none'
         }
       }}>
         <Container>
@@ -651,24 +706,39 @@ export default function Suketana() {
             </Box>
           </Box>
 
-          {/* Location Cards Grid */}
-          <Grid container spacing={3}>
-            {[
-              { name: 'HITEC City', distance: '15 km', time: '25 mins', icon: <Business />, category: 'IT Hub' },
-              { name: 'Gachibowli', distance: '12 km', time: '20 mins', icon: <Business />, category: 'IT Hub' },
+          {/* Location Cards Grid - Centered & Equally Spaced */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            width: '100%',
+            px: 2
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(5, 1fr)' },
+              gap: 3,
+              maxWidth: '1200px',
+              width: '100%'
+            }}>
+              {[
               { name: 'Airport', distance: '35 km', time: '45 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Railway Station', distance: '8 km', time: '15 mins', icon: <LocationOn />, category: 'Transport' },
               { name: 'Schools', distance: '2 km', time: '5 mins', icon: <Star />, category: 'Education' },
-              { name: 'Hospitals', distance: '5 km', time: '10 mins', icon: <Star />, category: 'Healthcare' }
+                { name: 'Hospitals', distance: '5 km', time: '10 mins', icon: <Star />, category: 'Healthcare' },
+                { name: 'Shopping Mall', distance: '3 km', time: '8 mins', icon: <Business />, category: 'Shopping' }
             ].map((location, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card sx={{
+                <Card key={index} sx={{
                   background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                   border: `2px solid ${gold}`,
                   borderRadius: 4,
                   p: 3,
-                  height: '100%',
+                  height: '180px',
+                  width: '100%',
                   transition: 'all 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
                   '&:hover': {
                     transform: 'translateY(-5px)',
                     boxShadow: `0 15px 30px rgba(0,0,0,0.3), 0 0 20px ${gold}40`
@@ -706,9 +776,9 @@ export default function Suketana() {
                     </Typography>
                   </Box>
                 </Card>
-              </Grid>
             ))}
-          </Grid>
+            </Box>
+          </Box>
 
           {/* Connectivity Info */}
           <Box sx={{ mt: 6, textAlign: 'center' }}>
@@ -734,7 +804,8 @@ export default function Suketana() {
       </Box>
 
       {/* FAQ Section */}
-      <Box sx={{
+      <Box 
+        sx={{
         bgcolor: dark,
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -747,7 +818,7 @@ export default function Suketana() {
           right: 0,
           bottom: 0,
           background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none'
+            pointerEvents: 'none'
         }
       }}>
         <Container>
@@ -851,7 +922,8 @@ export default function Suketana() {
       </Box>
 
       {/* Request Phone Call Section */}
-      <Box sx={{
+      <Box 
+        sx={{
         bgcolor: dark,
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -864,7 +936,7 @@ export default function Suketana() {
           right: 0,
           bottom: 0,
           background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none'
+            pointerEvents: 'none'
         }
       }}>
         <Container>
@@ -892,22 +964,44 @@ export default function Suketana() {
             </Typography>
           </Box>
 
-          <Grid container spacing={6} justifyContent="center">
-            <Grid item xs={12} md={6}>
+          {/* Contact Cards - Equal Width & Height */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'stretch',
+            width: '100%',
+            px: 2,
+            gap: 3
+          }}>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+              gap: 3,
+              maxWidth: '1000px',
+              width: '100%'
+            }}>
+              {/* Request Call Back Card */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
                 p: 4,
-                textAlign: 'center'
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
               }}>
-                <Call sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                <Box>
+                  <Call sx={{ fontSize: 60, color: gold, mb: 3 }} />
                 <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
                   Request a Call Back
                 </Typography>
                 <Typography sx={{ color: 'white', opacity: 0.9, mb: 4 }}>
                   Fill in your details and we'll call you back within 24 hours
                 </Typography>
+                </Box>
                 <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   <TextField
                     placeholder="Your Name"
@@ -970,22 +1064,53 @@ export default function Suketana() {
                   </Button>
                 </Box>
               </Card>
-            </Grid>
-            <Grid item xs={12} md={6}>
+
+              {/* Contact & Information Card */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
                 border: `2px solid ${gold}`,
                 borderRadius: 4,
                 p: 4,
-                textAlign: 'center'
+                textAlign: 'center',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '450px'
               }}>
-                <WhatsApp sx={{ fontSize: 60, color: gold, mb: 3 }} />
+                <Box>
+                  <WhatsApp sx={{ fontSize: 60, color: gold, mb: 3 }} />
                 <Typography variant="h5" sx={{ color: gold, fontWeight: 600, mb: 2 }}>
-                  WhatsApp Us
+                    Contact & Information
                 </Typography>
-                <Typography sx={{ color: 'white', opacity: 0.9, mb: 4 }}>
-                  Get instant responses and updates via WhatsApp
+                  <Typography sx={{ color: 'white', opacity: 0.9, mb: 3 }}>
+                    Multiple ways to connect with us for instant support
                 </Typography>
+                  
+                  {/* Contact Options */}
+                  <Box sx={{ mb: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Direct Call: +91 99026 51666
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <Email sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Email: info@suryaprimeventures.com
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
+                      <LocationOn sx={{ color: gold, mr: 1, fontSize: 20 }} />
+                      <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
+                        Office: Hyderabad, Telangana
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -994,18 +1119,34 @@ export default function Suketana() {
                     fontWeight: 600,
                     py: 2,
                     fontSize: '16px',
-                    mb: 2,
                     '&:hover': { bgcolor: '#128C7E' }
                   }}
                 >
                   Chat on WhatsApp
                 </Button>
-                <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px' }}>
-                  +91 99026 51666
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      borderColor: gold,
+                      color: gold,
+                      fontWeight: 600,
+                      py: 1.5,
+                      fontSize: '14px',
+                      '&:hover': { 
+                        borderColor: gold,
+                        bgcolor: 'rgba(224, 161, 70, 0.1)'
+                      }
+                    }}
+                  >
+                    Schedule Site Visit
+                  </Button>
+                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                    Available 9 AM - 7 PM (Mon-Sat)
                 </Typography>
+                </Box>
               </Card>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Container>
       </Box>
       
