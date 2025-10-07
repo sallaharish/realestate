@@ -1203,12 +1203,15 @@ export default function About() {
           </Box>
 
           <Box sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            justifyContent: 'center',
-            alignItems: 'stretch',
-            gap: { xs: 3, md: 4 },
-            flexWrap: 'wrap'
+            display: 'grid',
+            gridTemplateColumns: { 
+              xs: '1fr', 
+              sm: 'repeat(2, 1fr)', 
+              lg: 'repeat(4, 1fr)' 
+            },
+            gap: 3,
+            maxWidth: '1200px',
+            mx: 'auto'
           }}>
             {[
               {
@@ -1236,99 +1239,87 @@ export default function About() {
                 color: '#9C27B0'
               }
             ].map((award, index) => (
-              <Box key={index} sx={{
-                flex: { xs: '1 1 calc(50% - 12px)', md: '1 1 calc(25% - 24px)' },
-                minWidth: { xs: 'calc(50% - 12px)', md: '250px' },
-                maxWidth: { xs: 'calc(50% - 12px)', md: '300px' }
-              }}>
-                <Card sx={{
-                  background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
-                  border: `2px solid ${award.color}`,
-                  borderRadius: 4,
-                  p: { xs: 3, md: 4 },
-                  textAlign: 'center',
-                  height: '100%',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-15px) scale(1.02)',
-                    boxShadow: `0 25px 50px rgba(0,0,0,0.4), 0 0 30px ${award.color}40`,
-                    border: `3px solid ${award.color}`,
-                    '& .award-icon': {
-                      transform: 'rotate(360deg) scale(1.2)'
-                    },
-                    '& .award-overlay': {
-                      opacity: 1
-                    }
-                  },
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: `linear-gradient(135deg, ${award.color}20, transparent)`,
-                    opacity: 0,
-                    transition: 'opacity 0.3s ease'
-                  },
-                  '&:hover::before': {
-                    opacity: 1
+              <Card key={index} sx={{
+                background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
+                border: `2px solid ${award.color}`,
+                borderRadius: 4,
+                p: { xs: 3, md: 4 },
+                textAlign: 'center',
+                height: { xs: 300, sm: 320, lg: 340 },
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-15px) scale(1.02)',
+                  boxShadow: `0 25px 50px rgba(0,0,0,0.4), 0 0 30px ${award.color}40`,
+                  border: `3px solid ${award.color}`,
+                  '& .award-icon': {
+                    transform: 'rotate(360deg) scale(1.2)'
                   }
-                }}>
-                  <Box className="award-overlay" sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: `linear-gradient(135deg, ${award.color}15, transparent)`,
-                    opacity: 0,
-                    transition: 'opacity 0.3s ease',
-                    zIndex: 1
-                  }} />
-                  
-                  <Box sx={{ position: 'relative', zIndex: 2 }}>
-                    <Box className="award-icon" sx={{
-                      mb: 3,
-                      transition: 'all 0.3s ease',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      width: { xs: 60, md: 80 },
-                      height: { xs: 60, md: 80 },
-                      mx: 'auto',
-                      borderRadius: '50%',
-                      background: `linear-gradient(135deg, ${award.color}20, ${award.color}10)`,
-                      border: `2px solid ${award.color}`,
-                      boxShadow: `0 8px 25px ${award.color}30`
-                    }}>
-                      {award.icon}
-                    </Box>
-                    
-                    <Typography variant="h6" sx={{
-                      color: award.color,
-                      fontWeight: 800,
-                      mb: 2,
-                      fontSize: { xs: '16px', md: '18px' },
-                      textShadow: `2px 2px 4px rgba(0,0,0,0.3)`
-                    }}>
-                      {award.title}
-                    </Typography>
-                    
-                    <Typography sx={{
-                      color: 'white',
-                      opacity: 0.9,
-                      fontSize: { xs: '13px', md: '14px' },
-                      lineHeight: 1.6,
-                      textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
-                    }}>
-                      {award.description}
-                    </Typography>
+                },
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: `linear-gradient(135deg, ${award.color}20, transparent)`,
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease'
+                },
+                '&:hover::before': {
+                  opacity: 1
+                }
+              }}>
+                <Box sx={{ position: 'relative', zIndex: 2 }}>
+                  <Box className="award-icon" sx={{
+                    mb: 3,
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: { xs: 60, md: 80 },
+                    height: { xs: 60, md: 80 },
+                    mx: 'auto',
+                    borderRadius: '50%',
+                    background: `linear-gradient(135deg, ${award.color}20, ${award.color}10)`,
+                    border: `2px solid ${award.color}`,
+                    boxShadow: `0 8px 25px ${award.color}30`
+                  }}>
+                    {award.icon}
                   </Box>
-                </Card>
-              </Box>
+                  
+                  <Typography variant="h6" sx={{
+                    color: award.color,
+                    fontWeight: 800,
+                    mb: 2,
+                    fontSize: { xs: '16px', md: '18px' },
+                    textShadow: `2px 2px 4px rgba(0,0,0,0.3)`,
+                    minHeight: { xs: '50px', sm: '54px', lg: '56px' },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    {award.title}
+                  </Typography>
+                </Box>
+                
+                <Typography sx={{
+                  color: 'white',
+                  opacity: 0.9,
+                  fontSize: { xs: '13px', md: '14px' },
+                  lineHeight: 1.6,
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  {award.description}
+                </Typography>
+              </Card>
             ))}
           </Box>
         </Container>

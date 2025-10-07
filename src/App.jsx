@@ -9,6 +9,9 @@ import About from './pages/About.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Blog from './pages/Blog.jsx'
 import Contact from './pages/Contact.jsx'
+import Suketana from './pages/Suketana.jsx'
+import GreenValley from './pages/GreenValley.jsx'
+import RoyalGardens from './pages/RoyalGardens.jsx'
 import Footer from './components/Footer.jsx'
 import FloatingActions from './components/FloatingActions.jsx'
 
@@ -37,6 +40,9 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/suketana" element={<Suketana />} />
+        <Route path="/green-valley" element={<GreenValley />} />
+        <Route path="/royal-gardens" element={<RoyalGardens />} />
       </Routes>
     </PageContainer>
   )
