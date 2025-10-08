@@ -1,16 +1,126 @@
-import { Box, Container, Grid, Typography, Button, Card, CardContent, TextField, Accordion, AccordionSummary, AccordionDetails, Avatar, IconButton, Divider } from '@mui/material'
+import { Box, Container, Grid, Typography, Button, Card, CardContent, TextField, Accordion, AccordionSummary, AccordionDetails, Avatar, IconButton, Divider, Snackbar, Alert } from '@mui/material'
 import { ExpandMore, LocationOn, Email, Phone, Star, CheckCircle, WhatsApp, Call, ArrowForward, Business } from '@mui/icons-material'
 import Navbar from '../components/Navbar'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GreenValley() {
   const gold = '#e0a146';
   const dark = '#181c22';
   const [expanded, setExpanded] = useState(false);
+  const [callbackFormData, setCallbackFormData] = useState({
+    name: '',
+    phone: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+  };
+
+  const handleCallbackInputChange = (field) => (event) => {
+    setCallbackFormData(prev => ({
+      ...prev,
+      [field]: event.target.value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
+  };
+
+  const validatePhone = (phone) => {
+    // Remove all non-digit characters and check length
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+  };
+
+  const validateCallbackForm = () => {
+    const newErrors = {};
+    
+    if (!callbackFormData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!callbackFormData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!validatePhone(callbackFormData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number (10-15 digits)';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleCallbackSubmit = async (event) => {
+    event.preventDefault();
+    
+    // Validate form before submission
+    if (!validateCallbackForm()) {
+      setNotification({
+        open: true,
+        message: 'Please fix the errors in the form before submitting.',
+        severity: 'error'
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', callbackFormData.name);
+      formDataToSend.append('phone', callbackFormData.phone);
+      formDataToSend.append('project', 'Green Valley');
+      formDataToSend.append('form_type', 'Callback Request');
+
+      const response = await fetch('https://formspree.io/f/xeorlldk', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setNotification({
+          open: true,
+          message: 'Thank you for your callback request! We will call you back within 24 hours.',
+          severity: 'success'
+        });
+        
+        // Reset form
+        setCallbackFormData({
+          name: '',
+          phone: ''
+        });
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          console.error('Formspree errors:', data.errors);
+        }
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting callback request:', error);
+      setNotification({
+        open: true,
+        message: 'Sorry, there was an error sending your callback request. Please try again or contact us directly.',
+        severity: 'error'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleCloseNotification = () => {
+    setNotification(prev => ({ ...prev, open: false }));
   };
 
   const galleryImages = [
@@ -842,25 +952,30 @@ export default function GreenValley() {
       }}>
         <Container>
           <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" sx={{
-              color: gold,
-              fontWeight: 400,
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              mb: 4,
-              fontFamily: '"Playfair Display", serif',
-              letterSpacing: '0.05em',
-              lineHeight: 1.2
-            }}>
+            <Typography
+              variant="h2"
+              sx={{
+                color: gold,
+                fontWeight: 400,
+                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                mb: 4,
+                fontFamily: '"Playfair Display", serif',
+                letterSpacing: '0.05em',
+                lineHeight: 1.2
+              }}
+            >
               GET IN TOUCH
             </Typography>
-            <Typography sx={{
-              color: 'white',
-              opacity: 0.9,
-              fontSize: { xs: '16px', md: '18px' },
-              lineHeight: 1.6,
-              maxWidth: '600px',
-              mx: 'auto'
-            }}>
+            <Typography
+              sx={{
+                color: 'white',
+                opacity: 0.9,
+                fontSize: { xs: '16px', md: '18px' },
+                lineHeight: 1.6,
+                maxWidth: '600px',
+                mx: 'auto'
+              }}
+            >
               Ready to invest in Green Valley? Get in touch with our expert team today
             </Typography>
           </Box>
@@ -902,60 +1017,74 @@ export default function GreenValley() {
                     Fill out the form and our expert team will contact you shortly
               </Typography>
                   
-                  <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Box component="form" onSubmit={handleCallbackSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <TextField
                   placeholder="Your Name"
+                  value={callbackFormData.name}
+                  onChange={handleCallbackInputChange('name')}
                   variant="outlined"
+                  required
                   fullWidth
+                  error={!!errors.name}
+                  helperText={errors.name}
                   sx={{
                         '& .MuiOutlinedInput-root': { 
                           bgcolor: 'rgba(255,255,255,0.1)', 
                           color: 'white', 
-                          '& fieldset': { borderColor: gold }, 
-                          '&:hover fieldset': { borderColor: gold }, 
-                          '&.Mui-focused fieldset': { borderColor: gold }
+                          '& fieldset': { borderColor: errors.name ? '#f44336' : gold }, 
+                          '&:hover fieldset': { borderColor: errors.name ? '#f44336' : gold }, 
+                          '&.Mui-focused fieldset': { borderColor: errors.name ? '#f44336' : gold }
                         },
-                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 },
+                        '& .MuiFormHelperText-root': { color: '#f44336', fontSize: '12px' }
                   }}
                 />
                 <TextField
                   placeholder="Your Phone Number"
+                  value={callbackFormData.phone}
+                  onChange={handleCallbackInputChange('phone')}
                   variant="outlined"
+                  required
                   fullWidth
+                  error={!!errors.phone}
+                  helperText={errors.phone}
                   sx={{
                         '& .MuiOutlinedInput-root': { 
                           bgcolor: 'rgba(255,255,255,0.1)', 
                           color: 'white', 
-                          '& fieldset': { borderColor: gold }, 
-                          '&:hover fieldset': { borderColor: gold }, 
-                          '&.Mui-focused fieldset': { borderColor: gold }
+                          '& fieldset': { borderColor: errors.phone ? '#f44336' : gold }, 
+                          '&:hover fieldset': { borderColor: errors.phone ? '#f44336' : gold }, 
+                          '&.Mui-focused fieldset': { borderColor: errors.phone ? '#f44336' : gold }
                         },
-                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 }
-                      }}
-                    />
-                  </Box>
-                </Box>
+                        '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.7)', opacity: 1 },
+                        '& .MuiFormHelperText-root': { color: '#f44336', fontSize: '12px' }
+                  }}
+                />
                 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
+                  type="submit"
                   variant="contained"
+                  disabled={isSubmitting}
                   sx={{
                     bgcolor: gold,
                     color: dark,
                     fontWeight: 600,
                     py: 2,
                     fontSize: '16px',
-                    '&:hover': { bgcolor: '#d4943a' }
+                    '&:hover': { bgcolor: '#d4943a' },
+                    '&:disabled': { bgcolor: '#ccc' }
                   }}
                 >
-                  Request Call Back
+                  {isSubmitting ? 'Submitting...' : 'Request Call Back'}
                 </Button>
-                  <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
-                    We'll call you within 30 minutes
-                  </Typography>
-              </Box>
+                
+                <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
+                  We'll call you within 30 minutes
+                </Typography>
+                </Box>
+                </Box>
               </Card>
-
+                
               {/* Contact & Information Card */}
               <Card sx={{
                 background: `linear-gradient(135deg, rgba(224, 161, 70, 0.15) 0%, rgba(224, 161, 70, 0.05) 100%)`,
@@ -1034,12 +1163,35 @@ export default function GreenValley() {
                   <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '12px', mt: 1 }}>
                     Available 9 AM - 7 PM (Mon-Sat)
                   </Typography>
-              </Box>
+                </Box>
               </Card>
             </Box>
           </Box>
         </Container>
       </Box>
+
+      {/* Notification Snackbar */}
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        sx={{ mt: 8 }}
+      >
+        <Alert 
+          onClose={handleCloseNotification} 
+          severity={notification.severity}
+          sx={{ 
+            width: '100%',
+            bgcolor: notification.severity === 'success' ? '#4caf50' : '#f44336',
+            color: 'white',
+            '& .MuiAlert-icon': { color: 'white' }
+          }}
+        >
+          {notification.message}
+        </Alert>
+      </Snackbar>
+      
     </Box>
   );
 }

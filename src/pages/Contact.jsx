@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, Button, TextField, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { Box, Container, Grid, Typography, Button, TextField, Accordion, AccordionSummary, AccordionDetails, Snackbar, Alert } from '@mui/material'
 import { ExpandMore, LocationOn, Email, Phone } from '@mui/icons-material'
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
@@ -7,10 +7,152 @@ export default function Contact() {
   const gold = '#e0a146';
   const dark = '#181c22';
   const [expanded, setExpanded] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    phone: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const handleInputChange = (field) => (event) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: event.target.value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    // Remove all non-digit characters and check length
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Required field validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!validatePhone(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number (10-15 digits)';
+    }
+    
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      setNotification({
+        open: true,
+        message: 'Please fix the errors in the form before submitting.',
+        severity: 'error'
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('form_type', 'Contact Form');
+
+      const response = await fetch('https://formspree.io/f/xeorlldk', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setNotification({
+          open: true,
+          message: 'Thank you for your message! We will get back to you soon.',
+          severity: 'success'
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          company: '',
+          phone: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          console.error('Formspree errors:', data.errors);
+        }
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setNotification({
+        open: true,
+        message: 'Sorry, there was an error sending your message. Please try again or contact us directly.',
+        severity: 'error'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleCloseNotification = () => {
+    setNotification(prev => ({ ...prev, open: false }));
+  };
+
 
   return (
     <Box>
@@ -186,34 +328,45 @@ export default function Contact() {
                 Send us a message
               </Typography>
               
-              <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 <Box sx={{ display: 'flex', gap: 2 }}>
                   <TextField
                     placeholder="Name"
+                    value={formData.name}
+                    onChange={handleInputChange('name')}
                     variant="outlined"
+                    required
+                    error={!!errors.name}
+                    helperText={errors.name}
                     sx={{
                       flex: 1,
                       '& .MuiOutlinedInput-root': {
                         bgcolor: 'rgba(255,255,255,0.1)',
                         color: 'white',
                         '& fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.name ? '#f44336' : gold,
                         },
                         '&:hover fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.name ? '#f44336' : gold,
                         },
                         '&.Mui-focused fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.name ? '#f44336' : gold,
                         },
                       },
                       '& .MuiInputBase-input::placeholder': {
                         color: 'rgba(255,255,255,0.7)',
                         opacity: 1,
-                      }
+                      },
+                      '& .MuiFormHelperText-root': {
+                        color: '#f44336',
+                        fontSize: '12px',
+                      },
                     }}
                   />
                   <TextField
                     placeholder="Company"
+                    value={formData.company}
+                    onChange={handleInputChange('company')}
                     variant="outlined"
                     sx={{
                       flex: 1,
@@ -241,75 +394,103 @@ export default function Contact() {
                 <Box sx={{ display: 'flex', gap: 2 }}>
                   <TextField
                     placeholder="Phone"
+                    value={formData.phone}
+                    onChange={handleInputChange('phone')}
                     variant="outlined"
+                    required
+                    error={!!errors.phone}
+                    helperText={errors.phone}
                     sx={{
                       flex: 1,
                       '& .MuiOutlinedInput-root': {
                         bgcolor: 'rgba(255,255,255,0.1)',
                         color: 'white',
                         '& fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.phone ? '#f44336' : gold,
                         },
                         '&:hover fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.phone ? '#f44336' : gold,
                         },
                         '&.Mui-focused fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.phone ? '#f44336' : gold,
                         },
                       },
                       '& .MuiInputBase-input::placeholder': {
                         color: 'rgba(255,255,255,0.7)',
                         opacity: 1,
-                      }
+                      },
+                      '& .MuiFormHelperText-root': {
+                        color: '#f44336',
+                        fontSize: '12px',
+                      },
                     }}
                   />
                   <TextField
                     placeholder="Email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange('email')}
                     variant="outlined"
+                    required
+                    error={!!errors.email}
+                    helperText={errors.email}
                     sx={{
                       flex: 1,
                       '& .MuiOutlinedInput-root': {
                         bgcolor: 'rgba(255,255,255,0.1)',
                         color: 'white',
                         '& fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.email ? '#f44336' : gold,
                         },
                         '&:hover fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.email ? '#f44336' : gold,
                         },
                         '&.Mui-focused fieldset': {
-                          borderColor: gold,
+                          borderColor: errors.email ? '#f44336' : gold,
                         },
                       },
                       '& .MuiInputBase-input::placeholder': {
                         color: 'rgba(255,255,255,0.7)',
                         opacity: 1,
-                      }
+                      },
+                      '& .MuiFormHelperText-root': {
+                        color: '#f44336',
+                        fontSize: '12px',
+                      },
                     }}
                   />
                 </Box>
 
                 <TextField
                   placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleInputChange('subject')}
                   variant="outlined"
+                  required
+                  error={!!errors.subject}
+                  helperText={errors.subject}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       bgcolor: 'rgba(255,255,255,0.1)',
                       color: 'white',
                       '& fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.subject ? '#f44336' : gold,
                       },
                       '&:hover fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.subject ? '#f44336' : gold,
                       },
                       '&.Mui-focused fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.subject ? '#f44336' : gold,
                       },
                     },
                     '& .MuiInputBase-input::placeholder': {
                       color: 'rgba(255,255,255,0.7)',
                       opacity: 1,
-                    }
+                    },
+                    '& .MuiFormHelperText-root': {
+                      color: '#f44336',
+                      fontSize: '12px',
+                    },
                   }}
                 />
 
@@ -317,41 +498,54 @@ export default function Contact() {
                   placeholder="Message"
                   multiline
                   rows={6}
+                  value={formData.message}
+                  onChange={handleInputChange('message')}
                   variant="outlined"
+                  required
+                  error={!!errors.message}
+                  helperText={errors.message}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       bgcolor: 'rgba(255,255,255,0.1)',
                       color: 'white',
                       '& fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.message ? '#f44336' : gold,
                       },
                       '&:hover fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.message ? '#f44336' : gold,
                       },
                       '&.Mui-focused fieldset': {
-                        borderColor: gold,
+                        borderColor: errors.message ? '#f44336' : gold,
                       },
                     },
                     '& .MuiInputBase-input::placeholder': {
                       color: 'rgba(255,255,255,0.7)',
                       opacity: 1,
-                    }
+                    },
+                    '& .MuiFormHelperText-root': {
+                      color: '#f44336',
+                      fontSize: '12px',
+                    },
                   }}
                 />
 
-                <Button
-                  variant="contained"
-                  sx={{
-                    bgcolor: gold,
-                    color: dark,
-                    fontWeight: 600,
-                    py: 2,
-                    fontSize: '16px',
-                    '&:hover': { bgcolor: '#d4943a' }
-                  }}
-                >
-                  Send Message
-                </Button>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          disabled={isSubmitting}
+                          fullWidth
+                          sx={{
+                            bgcolor: gold,
+                            color: dark,
+                            fontWeight: 600,
+                            py: 2,
+                            fontSize: '16px',
+                            '&:hover': { bgcolor: '#d4943a' },
+                            '&:disabled': { bgcolor: '#ccc' }
+                          }}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </Button>
               </Box>
             </Box>
           </Box>
@@ -504,7 +698,28 @@ export default function Contact() {
           title="Location Map"
         />
       </Box>
-      
+
+      {/* Notification Snackbar */}
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000}
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        sx={{ mt: 8 }}
+      >
+        <Alert 
+          onClose={handleCloseNotification} 
+          severity={notification.severity}
+          sx={{ 
+            width: '100%',
+            bgcolor: notification.severity === 'success' ? '#4caf50' : '#f44336',
+            color: 'white',
+            '& .MuiAlert-icon': { color: 'white' }
+          }}
+        >
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </Box>
   )
 }
