@@ -155,7 +155,10 @@ function Highlights() {
               }
             }}
           >
-            WELCOME TO SURYA PRIME VENTURES
+            WELCOME TO
+            <Box component="span" sx={{ display: 'block', mt: 1 }}>
+              SURYA PRIME VENTURES
+            </Box>
             </Typography>
           <Typography 
             sx={{ 
@@ -169,7 +172,7 @@ function Highlights() {
               transition: 'all 0.4s ease-out 0.1s'
             }}
           >
-              Since 2017, Surya prime ventures Pvt Ltd has established itself as a trusted open plot real estate developer in Telangana. We offer DTCP Approved & RERA registered open plots in well-connected locations across Shadnagar, South Hyderabad.
+              Since 2017, Surya Prime Ventures Pvt Ltd, founded by Surya Narayana, has established itself as a trusted real estate developer in Andhra Pradesh. We offer premium residential plots and developments in well-connected locations across Visakhapatnam and surrounding areas.
             </Typography>
         </Box>
 
@@ -233,7 +236,7 @@ function Highlights() {
                 transition: 'all 0.3s ease-out 0.4s'
               }}
             >
-              Meet Our Founder – Mr. Chandra Chandrasekhar
+              Meet Our Founder – Mr. Surya Narayana
             </Typography>
             <Typography 
               sx={{ 
@@ -245,7 +248,7 @@ function Highlights() {
                 transition: 'all 0.3s ease-out 0.5s'
               }}
             >
-              With over 20 years of experience in the real estate industry, Mr. Chandra Chandrasekhar has transformed Swargaseema Sandalwood Farms Pvt Ltd into a reputed name in open plot development. From being a successful builder to a visionary land developer, he brings a deep-rooted passion for greenery, nature, traditional living, and a sustainable environment, which is reflected in every project he envisions. His expertise, dedication, and customer-first approach continue to drive our success in creating thriving communities.
+              With over 15 years of experience in the real estate industry, Mr. Surya Narayana has established Surya Prime Ventures as a trusted name in premium residential development. From being a successful builder to a visionary real estate developer, he brings a deep-rooted passion for quality, innovation, and sustainable development, which is reflected in every project he envisions. His expertise, dedication, and customer-first approach continue to drive our success in creating thriving communities in Visakhapatnam.
             </Typography>
             <Typography 
               sx={{ 
@@ -257,7 +260,7 @@ function Highlights() {
                 transition: 'all 0.3s ease-out 0.6s'
               }}
             >
-              Beyond real estate, Mr. Chandrasekhar shares his knowledge and life philosophies through his YouTube channel, where he talks about day-to-day living, financial and personality development, building the right attitude, and leading a safe, secure, healthy, and happy life. Watch on <Box component="a" href="#" sx={{ color: gold, textDecoration: 'underline', fontWeight: 500, ml: 0.5, display: 'inline' }}>YouTube</Box>.
+              Beyond real estate, Mr. Surya Narayana shares his knowledge and life philosophies through his YouTube channel, where he talks about day-to-day living, financial and personality development, building the right attitude, and leading a safe, secure, healthy, and happy life. Watch on <Box component="a" href="#" sx={{ color: gold, textDecoration: 'underline', fontWeight: 500, ml: 0.5, display: 'inline' }}>YouTube</Box>.
             </Typography>
             
             <Button 
@@ -349,12 +352,12 @@ function FAQSection() {
       answer: "Real estate investment helps you build long-term wealth through property appreciation, rental income, and tax benefits. It provides a stable foundation for your financial portfolio and can generate passive income streams."
     },
     {
-      question: "How do I start investing in open plots with Surya Prime Ventures?",
-      answer: "Starting is easy! Contact our team for a consultation, visit our DTCP approved plots, and we'll guide you through the entire process from selection to documentation and ownership transfer."
+      question: "How do I start investing in plots with Surya Prime Ventures?",
+      answer: "Starting is easy! Contact our team for a consultation, visit our premium residential developments, and we'll guide you through the entire process from selection to documentation and ownership transfer."
     },
     {
-      question: "What makes Surya Prime Ventures plots different from other developers?",
-      answer: "Our plots are 100% DTCP approved, RERA registered, located in high-growth areas, and come with transparent documentation. We have over 12 years of experience and 800+ satisfied customers."
+      question: "What makes Surya Prime Ventures developments different from other developers?",
+      answer: "Our developments are strategically located in prime areas of Visakhapatnam, come with transparent documentation, and are developed under the leadership of founder Surya Narayana. We have over 6 years of experience and 800+ satisfied customers."
     },
     {
       question: "Are there any hidden costs or charges?",
@@ -2682,8 +2685,8 @@ function CallToAction() {
               mx: 'auto'
             }}
           >
-            Join 800+ satisfied customers who have made smart real estate investments with Surya Prime Ventures. 
-            Get started today with our DTCP approved and RERA registered open plots.
+            Join 800+ satisfied customers who have made smart real estate investments with Surya Prime Ventures, led by founder Surya Narayana. 
+            Get started today with our premium residential developments in Visakhapatnam.
           </Typography>
 
           <Box sx={{ 

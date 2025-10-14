@@ -109,7 +109,7 @@ const Footer = () => {
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2}>
+          <Grid item xs={12} sm={4}>
             <Typography 
               variant="h6" 
               sx={{ 
@@ -144,7 +144,7 @@ const Footer = () => {
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={4}>
             <Typography 
               variant="h6" 
               sx={{ 
@@ -179,7 +179,7 @@ const Footer = () => {
           </Grid>
 
           {/* Contact Info */}
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} sm={4}>
             <Typography 
               variant="h6" 
               sx={{ 
@@ -195,7 +195,7 @@ const Footer = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <LocationOnIcon sx={{ color: gold, fontSize: 20 }} />
                 <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px' }}>
-                  Shadnagar, South Hyderabad, Telangana
+                  4th Floor Blue House Building, 50-51-1/1, Plot No. A-61, TPT Colony, Seethammadara, Visakhapatnam, Andhra Pradesh 530013
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

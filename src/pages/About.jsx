@@ -82,7 +82,7 @@ export default function About() {
               mb: 3,
               textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
             }}>
-              Surya Prime Ventures is a leading real estate development company established in 2017 in Hyderabad, Telangana. We specialize in developing DTCP and RERA-registered open plots in prime locations across the city.
+              Surya Prime Ventures is a leading real estate development company established in 2017 in Visakhapatnam, Andhra Pradesh. Founded by Surya Narayana, we specialize in developing premium residential plots and developments in prime locations across the city.
             </Typography>
             <Typography sx={{ 
               color: 'white', 
@@ -90,7 +90,7 @@ export default function About() {
               lineHeight: 1.8,
               textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
             }}>
-              With a strong reputation for quality, reliability, and customer satisfaction, we have successfully delivered numerous projects that have transformed the landscape of Hyderabad. Our expertise lies in identifying high-potential locations and developing them into well-planned, legally compliant, and value-appreciating real estate assets.
+              With a strong reputation for quality, reliability, and customer satisfaction, we have successfully delivered numerous projects that have transformed the landscape of Visakhapatnam. Under the leadership of founder Surya Narayana, our expertise lies in identifying high-potential locations and developing them into well-planned, legally compliant, and value-appreciating real estate assets.
             </Typography>
           </Box>
 
@@ -113,7 +113,7 @@ export default function About() {
                   mb: 3,
                   textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
                 }}>
-                  Mr. Chandra Chandrasekhar is the Founder and Managing Director of Surya Prime Ventures. With over 20 years of experience in the real estate industry, he has been instrumental in shaping the company's vision and growth.
+                  Mr. Surya Narayana is the Founder and Managing Director of Surya Prime Ventures. With over 15 years of experience in the real estate industry, he has been instrumental in shaping the company's vision and growth in Andhra Pradesh.
                 </Typography>
                 <Typography sx={{ 
                   color: 'white', 
@@ -231,7 +231,7 @@ export default function About() {
                       Head Office
                     </Typography>
                     <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px', lineHeight: 1.4 }}>
-                      Shadnagar, South Hyderabad, Telangana
+                      4th Floor Blue House Building, 50-51-1/1, Plot No. A-61, TPT Colony, Seethammadara, Visakhapatnam, Andhra Pradesh 530013
                     </Typography>
                   </Box>
                 </Box>
@@ -556,7 +556,7 @@ export default function About() {
               { 
                 year: '2017', 
                 title: 'Company Founded', 
-                description: 'Surya Prime Ventures was established with a vision to transform the real estate landscape in Telangana.',
+                description: 'Surya Prime Ventures was established by Surya Narayana with a vision to transform the real estate landscape in Andhra Pradesh.',
                 icon: '🏢',
                 color: '#e0a146'
               },
@@ -577,14 +577,14 @@ export default function About() {
               { 
                 year: '2022', 
                 title: 'Market Expansion', 
-                description: 'Expanded operations across multiple locations in South Hyderabad with premium projects.',
+                description: 'Expanded operations across multiple locations in Visakhapatnam with premium projects.',
                 icon: '🌍',
                 color: '#FF9800'
               },
               { 
                 year: '2024', 
                 title: 'Industry Recognition', 
-                description: 'Recognized as one of the most trusted real estate developers in Telangana.',
+                description: 'Recognized as one of the most trusted real estate developers in Andhra Pradesh.',
                 icon: '🏆',
                 color: '#9C27B0'
               }
@@ -937,7 +937,7 @@ export default function About() {
           }}>
             {[
               {
-                name: 'Mr. Chandra Chandrasekhar',
+                name: 'Mr. Surya Narayana',
                 position: 'Founder & Managing Director',
                 image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
                 experience: '20+ Years',
@@ -1234,7 +1234,7 @@ export default function About() {
               },
               {
                 title: 'Best Developer Award',
-                description: 'Recognized as the best real estate developer in Telangana for 2023.',
+                description: 'Recognized as the best real estate developer in Andhra Pradesh for 2023.',
                 icon: <Business sx={{ fontSize: { xs: 32, md: 40 }, color: gold }} />,
                 color: '#9C27B0'
               }
@@ -1345,7 +1345,7 @@ export default function About() {
         }
       }}>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d78.1234567!3d17.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb123456789abc%3A0x1234567890abcdef!2sShadnagar%2C%20Telangana!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d83.2184815!3d17.6868159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389a9c9b7%3A0x9b7b8c9d9e9f0a1b!2s4th%20Floor%20Blue%20House%20Building%2C%20TPT%20Colony%2C%20Seethammadara%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530013!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0, position: 'relative', zIndex: 2 }}

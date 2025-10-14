@@ -15,6 +15,21 @@ import RoyalGardens from './pages/RoyalGardens.jsx'
 import Footer from './components/Footer.jsx'
 import FloatingActions from './components/FloatingActions.jsx'
 
+// Admin imports
+import AdminDashboard from './pages/admin/AdminDashboard.jsx'
+import PropertyManagement from './pages/admin/PropertyManagement.jsx'
+import UserManagement from './pages/admin/UserManagement.jsx'
+import AnalyticsReports from './pages/admin/AnalyticsReports.jsx'
+import InquiriesManagement from './pages/admin/InquiriesManagement.jsx'
+import Settings from './pages/admin/Settings.jsx'
+import AdminLogin from './pages/admin/AdminLogin.jsx'
+import AdminTest from './pages/admin/AdminTest.jsx'
+import AdminDashboardSimple from './pages/admin/AdminDashboardSimple.jsx'
+import AdminDashboardFixed from './pages/admin/AdminDashboardFixed.jsx'
+import AdminDashboardMinimal from './pages/admin/AdminDashboardMinimal.jsx'
+import AdminDashboardThemed from './pages/admin/AdminDashboardThemed.jsx'
+import { ThemeProvider } from './contexts/ThemeContext.jsx'
+
 // navItems moved to HeroCarousel.jsx
 
 
@@ -43,6 +58,41 @@ export default function App() {
         <Route path="/suketana" element={<Suketana />} />
         <Route path="/green-valley" element={<GreenValley />} />
         <Route path="/royal-gardens" element={<RoyalGardens />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/test" element={<AdminTest />} />
+        <Route path="/admin/simple" element={<AdminDashboardSimple />} />
+        <Route path="/ " element={
+          <ThemeProvider>
+            <AdminDashboardThemed />
+          </ThemeProvider>
+        } />
+        <Route path="/admin/properties" element={
+          <ThemeProvider>
+            <PropertyManagement />
+          </ThemeProvider>
+        } />
+        <Route path="/admin/users" element={
+          <ThemeProvider>
+            <UserManagement />
+          </ThemeProvider>
+        } />
+        <Route path="/admin/reports" element={
+          <ThemeProvider>
+            <AnalyticsReports />
+          </ThemeProvider>
+        } />
+        <Route path="/admin/inquiries" element={
+          <ThemeProvider>
+            <InquiriesManagement />
+          </ThemeProvider>
+        } />
+        <Route path="/admin/settings" element={
+          <ThemeProvider>
+            <Settings />
+          </ThemeProvider>
+        } />
       </Routes>
     </PageContainer>
   )

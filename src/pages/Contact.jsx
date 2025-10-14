@@ -262,7 +262,7 @@ export default function Contact() {
                       Head Office
                     </Typography>
                     <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px', lineHeight: 1.4 }}>
-                      Shadnagar, South Hyderabad, Telangana
+                      4th Floor Blue House Building, 50-51-1/1, Plot No. A-61, TPT Colony, Seethammadara, Visakhapatnam, Andhra Pradesh 530013
                     </Typography>
                   </Box>
                 </Box>
@@ -688,7 +688,7 @@ export default function Contact() {
         }
       }}>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d78.1234567!3d17.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb123456789abc%3A0x1234567890abcdef!2sShadnagar%2C%20Telangana!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d83.2184815!3d17.6868159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389a9c9b7%3A0x9b7b8c9d9e9f0a1b!2s4th%20Floor%20Blue%20House%20Building%2C%20TPT%20Colony%2C%20Seethammadara%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530013!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0, position: 'relative', zIndex: 2 }}

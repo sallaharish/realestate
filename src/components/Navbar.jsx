@@ -82,7 +82,10 @@ export default function Navbar() {
             letterSpacing: 1,
             fontSize: { xs: '1rem', md: '1.15rem' }
           }}>
-            SURYA PRIME VENTURES
+            SURYA PRIME
+            <Box component="span" sx={{ display: 'block', fontSize: '0.7em', lineHeight: 1 }}>
+              VENTURES
+            </Box>
           </Typography>
           
           {/* Centered menu on desktop */}
