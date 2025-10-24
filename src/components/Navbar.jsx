@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import PhoneIcon from '@mui/icons-material/Phone'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { Link, useLocation } from 'react-router-dom'
+import logo from '../assets/4K-01.png'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -15,9 +16,9 @@ const navItems = [
 ]
 
 const projectItems = [
-  { label: 'Suketana', to: '/suketana', description: 'Premium Residential Plots' },
-  { label: 'Green Valley', to: '/green-valley', description: 'Eco-Friendly Residential Plots' },
-  { label: 'Royal Gardens', to: '/royal-gardens', description: 'Luxury Residential Plots' },
+  { label: 'Singarai', to: '/singarai', description: 'Premium Residential Plots' },
+  { label: 'Guddipa', to: '/guddipa', description: 'Eco-Friendly Residential Plots' },
+  { label: 'Sampathipuram', to: '/sampathipuram', description: 'Luxury Residential Plots' },
 ]
 
 export default function Navbar() {
@@ -47,9 +48,9 @@ export default function Navbar() {
 
   // Check if we're on the contact page or project pages
   const isContactPage = location.pathname === '/contact'
-  const isProjectPage = location.pathname.startsWith('/suketana') || 
-                       location.pathname.startsWith('/green-valley') || 
-                       location.pathname.startsWith('/royal-gardens')
+  const isProjectPage = location.pathname.startsWith('/singarai') || 
+                       location.pathname.startsWith('/guddipa') || 
+                       location.pathname.startsWith('/sampathipuram')
   const needsConstantBackground = isContactPage || isProjectPage
 
   return (
@@ -74,19 +75,36 @@ export default function Navbar() {
           minHeight: { xs: 64, md: 76 },
           px: { xs: 2, md: 6 }
         }}>
-          <Typography variant="h6" component={Link} to="/" sx={{
+          <Box component={Link} to="/" sx={{
             flexGrow: { xs: 1, md: 0 },
             textDecoration: 'none',
-            color: 'white',
-            fontWeight: 800,
-            letterSpacing: 1,
-            fontSize: { xs: '1rem', md: '1.15rem' }
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1
           }}>
-            SURYA PRIME
-            <Box component="span" sx={{ display: 'block', fontSize: '0.7em', lineHeight: 1 }}>
-              VENTURES
-            </Box>
-          </Typography>
+            <Box
+              component="img"
+              src={logo}
+              alt="Surya Prime Ventures"
+              sx={{
+                height: { xs: 40, md: 50 },
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
+            <Typography sx={{
+              color: 'white',
+              fontWeight: 800,
+              letterSpacing: 1,
+              fontSize: { xs: '0.9rem', md: '1.1rem' },
+              display: { xs: 'none', sm: 'block' }
+            }}>
+              SURYA PRIME
+              <Box component="span" sx={{ display: 'block', fontSize: '0.7em', lineHeight: 1 }}>
+                VENTURES
+              </Box>
+            </Typography>
+          </Box>
           
           {/* Centered menu on desktop */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5, mx: 'auto', alignItems: 'center' }}>
@@ -105,7 +123,7 @@ export default function Navbar() {
                         color: gold,
                         backgroundColor: 'rgba(224, 161, 70, 0.1)'
                       },
-                      ...(location.pathname.startsWith('/suketana') || location.pathname.startsWith('/green-valley') || location.pathname.startsWith('/royal-gardens') ? {
+                      ...(location.pathname.startsWith('/singarai') || location.pathname.startsWith('/guddipa') || location.pathname.startsWith('/sampathipuram') ? {
                         color: gold,
                         backgroundColor: 'rgba(224, 161, 70, 0.1)',
                       } : {}),
@@ -192,7 +210,7 @@ export default function Navbar() {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               <Button
-                href="tel:+919902651666"
+                href="tel:+919170394959"
                 variant="contained"
                 startIcon={<PhoneIcon />}
                 sx={{ 
@@ -204,7 +222,7 @@ export default function Navbar() {
                   '&:hover': { bgcolor: '#d4923a' }
                 }}
               >
-                99026 51666
+                91703 94959
               </Button>
             </Box>
             
@@ -257,8 +275,20 @@ export default function Navbar() {
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center',
-            borderBottom: `1px solid rgba(224, 161, 70, 0.3)`
+            borderBottom: `1px solid rgba(224, 161, 70, 0.3)`,
+            flexDirection: 'column',
+            gap: 1
           }}>
+            <Box
+              component="img"
+              src={logo}
+              alt="Surya Prime Ventures"
+              sx={{
+                height: 50,
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+            />
             <Typography variant="h6" sx={{ 
               color: gold, 
               fontWeight: 800,
@@ -286,7 +316,7 @@ export default function Navbar() {
                           transform: 'translateX(5px)',
                           transition: 'all 0.3s ease'
                         },
-                        ...(location.pathname.startsWith('/suketana') || location.pathname.startsWith('/green-valley') || location.pathname.startsWith('/royal-gardens') ? {
+                        ...(location.pathname.startsWith('/singarai') || location.pathname.startsWith('/guddipa') || location.pathname.startsWith('/sampathipuram') ? {
                           bgcolor: 'rgba(224, 161, 70, 0.3)',
                           color: gold,
                           borderLeft: `3px solid ${gold}`
@@ -392,7 +422,7 @@ export default function Navbar() {
           {/* Phone CTA */}
           <Box sx={{ p: 3 }}>
             <Button
-              href="tel:+919902651666"
+              href="tel:+919170394959"
               variant="contained"
               startIcon={<PhoneIcon />}
               fullWidth
@@ -410,7 +440,7 @@ export default function Navbar() {
                 }
               }}
             >
-              Call 99026 51666
+              Call 91703 94959
             </Button>
           </Box>
         </Box>

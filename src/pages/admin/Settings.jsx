@@ -44,7 +44,7 @@ export default function Settings() {
     company: {
       name: 'Surya Prime Ventures',
       email: 'info@suryaprimeventures.com',
-      phone: '+91 99026 51666',
+      phone: '+91 91703 94959',
       address: 'Hyderabad, Telangana',
       website: 'www.suryaprimeventures.com',
       description: 'Leading real estate developer in Hyderabad'

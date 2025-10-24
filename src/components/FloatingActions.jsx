@@ -4,7 +4,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import PhoneIcon from '@mui/icons-material/Phone'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
-const PHONE = '9902651666'
+const PHONE = '9170394959'
 const WA_LINK = `https://wa.me/91${PHONE}`
 
 export default function FloatingActions() {

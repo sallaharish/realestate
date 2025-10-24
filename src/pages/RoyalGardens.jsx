@@ -4,6 +4,13 @@ import Navbar from '../components/Navbar'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+// Import Sampathipuram images
+import sampathipuramMainImage from '../assets/sampathipuram/mianimage.jpg'
+import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
+import sampathipuramImage2 from '../assets/sampathipuram/image 2.jpg'
+import sampathipuramImage3 from '../assets/sampathipuram/image3.jpg'
+import sampathipuramRouteMap from '../assets/sampathipuram/route map.jpg'
+
 export default function RoyalGardens() {
   const gold = '#e0a146';
   const dark = '#181c22';
@@ -77,7 +84,7 @@ export default function RoyalGardens() {
       const formDataToSend = new FormData();
       formDataToSend.append('name', callbackFormData.name);
       formDataToSend.append('phone', callbackFormData.phone);
-      formDataToSend.append('project', 'Royal Gardens');
+      formDataToSend.append('project', 'SAMPATHIPURAM');
       formDataToSend.append('form_type', 'Callback Request');
 
       const response = await fetch('https://formspree.io/f/xeorlldk', {
@@ -124,11 +131,10 @@ export default function RoyalGardens() {
   };
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
+    sampathipuramImage1,
+    sampathipuramImage2,
+    sampathipuramImage3,
+    sampathipuramRouteMap,
   ];
 
   const [mainImage, setMainImage] = useState(galleryImages[0]);
@@ -141,7 +147,7 @@ export default function RoyalGardens() {
       <Box sx={{
         position: 'relative',
         py: { xs: 10, md: 15 },
-        backgroundImage: 'url(https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop)',
+        backgroundImage: `url(${sampathipuramMainImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         '&::before': {
@@ -174,7 +180,7 @@ export default function RoyalGardens() {
             fontFamily: '"Playfair Display", serif',
             letterSpacing: '0.05em'
           }}>
-            ROYAL GARDENS
+            SAMPATHIPURAM
           </Typography>
           <Typography variant="h4" sx={{
             color: 'white',
@@ -220,7 +226,7 @@ export default function RoyalGardens() {
               letterSpacing: '0.05em',
               lineHeight: 1.2
             }}>
-              ABOUT ROYAL GARDENS
+              ABOUT SAMPATHIPURAM
             </Typography>
             <Typography sx={{
               color: 'white',
@@ -230,7 +236,7 @@ export default function RoyalGardens() {
               maxWidth: '700px',
               mx: 'auto'
             }}>
-              Discover the perfect blend of luxury living and strategic location in Hyderabad's most prestigious corridor
+              Discover the perfect blend of luxury living and strategic location near Anakapalli
             </Typography>
           </Box>
 
@@ -254,9 +260,9 @@ export default function RoyalGardens() {
                 }
               }
             }}>
-              <img
-                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                alt="Royal Gardens Luxury Living"
+                <img
+                  src={sampathipuramMainImage}
+                alt="Sampathipuram Main Image"
                 style={{
                   width: '100%',
                   height: '400px',
@@ -296,7 +302,7 @@ export default function RoyalGardens() {
                 mb: 3,
                 opacity: 0.9
               }}>
-                Royal Gardens represents the pinnacle of luxury residential development in Hyderabad's fastest-growing corridor. This DTCP approved and RERA registered project offers meticulously planned plots with world-class infrastructure and premium amenities.
+                Sampathipuram represents the pinnacle of luxury residential development near Anakapalli. This DTCP approved project offers meticulously planned plots with world-class infrastructure and premium amenities.
               </Typography>
               <Typography sx={{ 
                 color: 'white', 
@@ -305,7 +311,7 @@ export default function RoyalGardens() {
                 mb: 4,
                 opacity: 0.9
               }}>
-                With excellent connectivity to IT hubs, educational institutions, and healthcare facilities, Royal Gardens presents an ideal opportunity for both investors and end-users looking to build their dream luxury homes.
+                With excellent connectivity to Anakapalli and surrounding areas, Sampathipuram presents an ideal opportunity for both investors and end-users looking to build their dream luxury homes.
               </Typography>
             </Grid>
             
@@ -411,8 +417,8 @@ export default function RoyalGardens() {
               mx: 'auto'
             }}>
               <img
-                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop"
-                alt="Master Plan"
+                src={sampathipuramRouteMap}
+                alt="Sampathipuram Master Plan"
                 style={{
                   width: '100%',
                   height: '500px',
@@ -758,14 +764,14 @@ export default function RoyalGardens() {
               mx: 'auto'
             }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d83.2184815!3d17.6868159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389a9c9b7%3A0x9b7b8c9d9e9f0a1b!2sRoyal%20Gardens%20Project%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=17°41'32.8&quot;N 82°57'15.6&quot;E&zoom=14"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Royal Gardens Location"
+                title="Sampathipuram Location"
               />
               <Box sx={{
                 position: 'absolute',
@@ -778,10 +784,10 @@ export default function RoyalGardens() {
                 backdropFilter: 'blur(10px)'
               }}>
                 <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Royal Gardens Location
+                  Sampathipuram Location
                 </Typography>
                 <Typography sx={{ fontSize: '14px', opacity: 0.9 }}>
-                  Luxury Location in Hyderabad
+                  Prime Location near Anakapalli
                 </Typography>
               </Box>
             </Box>
@@ -866,9 +872,7 @@ export default function RoyalGardens() {
                 Premium Connectivity
               </Typography>
               <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '16px', lineHeight: 1.6 }}>
-                Royal Gardens is strategically located with easy access to major IT hubs, educational institutions, 
-                healthcare facilities, and transportation hubs. The project offers excellent connectivity through 
-                premium roads and upcoming metro connectivity for luxury living.
+                Sampathipuram is strategically located near Anakapalli with excellent connectivity. The project is 45 minutes from NAD Junction and 2 Kms from Anakapalli bypass, providing easy access to local amenities, educational institutions, healthcare facilities, and transportation hubs.
               </Typography>
             </Card>
           </Box>
@@ -898,7 +902,7 @@ export default function RoyalGardens() {
           </Typography>
           <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
             {[
-              { question: 'What luxury amenities are included?', answer: 'Royal Gardens includes concierge services, private clubhouse, premium landscaping, exclusive security, and VIP lifestyle amenities.' },
+              { question: 'What luxury amenities are included?', answer: 'Sampathipuram includes concierge services, private clubhouse, premium landscaping, exclusive security, and VIP lifestyle amenities.' },
               { question: 'Are there any additional charges for luxury features?', answer: 'All luxury amenities are included in the plot price. There are no additional charges for premium features and services.' },
               { question: 'What is the plot size available?', answer: 'Plots are available in various sizes, starting from 300 sq yards to 500 sq yards, designed for luxury living.' },
               { question: 'Is there a payment plan available?', answer: 'Yes, we offer flexible payment plans with easy installments over 12-24 months, making luxury living accessible.' },
@@ -970,7 +974,7 @@ export default function RoyalGardens() {
               maxWidth: '600px',
               mx: 'auto'
             }}>
-              Ready to invest in Royal Gardens? Get in touch with our expert team today
+              Ready to invest in Sampathipuram? Get in touch with our expert team today
             </Typography>
           </Box>
 
@@ -1106,7 +1110,7 @@ export default function RoyalGardens() {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
                       <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
                       <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
-                        Direct Call: +91 99026 51666
+                        Direct Call: +91 91703 94959
                       </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
@@ -1118,7 +1122,7 @@ export default function RoyalGardens() {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
                       <LocationOn sx={{ color: gold, mr: 1, fontSize: 20 }} />
                       <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
-                        Office: Hyderabad, Telangana
+                        Office: Near Anakapalli, Andhra Pradesh
                       </Typography>
                     </Box>
                   </Box>

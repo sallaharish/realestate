@@ -2,6 +2,11 @@ import { Box, Container, Grid, Typography, Button, Card, CardContent, TextField,
 import { ExpandMore, LocationOn, Email, Phone, Star, Business, Timeline, CheckCircle, PhotoLibrary, Map, Call, WhatsApp, Share, Favorite } from '@mui/icons-material'
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
+import mainImage from '../assets/singarai/main image.jpg'
+import galleryImage1 from '../assets/singarai/gallary image 1.jpg'
+import galleryImage2 from '../assets/singarai/gallary image 2.jpg'
+import galleryImage3 from '../assets/singarai/galllary image 3.jpg'
+import locationMap from '../assets/singarai/locatiom map.png'
 
 export default function Suketana() {
   const gold = '#e0a146';
@@ -77,7 +82,7 @@ export default function Suketana() {
       const formDataToSend = new FormData();
       formDataToSend.append('name', callbackFormData.name);
       formDataToSend.append('phone', callbackFormData.phone);
-      formDataToSend.append('project', 'SUKETANA');
+      formDataToSend.append('project', 'SINGARAI');
       formDataToSend.append('form_type', 'Callback Request');
 
       const response = await fetch('https://formspree.io/f/xeorlldk', {
@@ -125,12 +130,11 @@ export default function Suketana() {
 
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1570129477492-45c00371b117?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop'
+    mainImage,
+    galleryImage1,
+    galleryImage2,
+    galleryImage3,
+    locationMap,
   ];
 
   return (
@@ -143,7 +147,7 @@ export default function Suketana() {
         bgcolor: dark,
         color: 'white',
         position: 'relative',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop)',
+        backgroundImage: `url(${mainImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         '&::before': {
@@ -179,7 +183,7 @@ export default function Suketana() {
               fontFamily: '"Playfair Display", serif',
               letterSpacing: '0.05em'
             }}>
-              SUKETANA
+              SINGARAI
             </Typography>
             <Typography sx={{ 
               color: 'white', 
@@ -232,7 +236,7 @@ export default function Suketana() {
               letterSpacing: '0.05em',
               lineHeight: 1.2
             }}>
-              ABOUT SUKETANA
+              ABOUT SINGARAI
             </Typography>
             <Typography sx={{
               color: 'white',
@@ -254,37 +258,22 @@ export default function Suketana() {
               <Box sx={{
                 position: 'relative',
                 borderRadius: 4,
-                overflow: 'hidden',
+                overflow: 'auto',
               boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
               border: `3px solid ${gold}`,
               maxWidth: '800px',
-              mx: 'auto'
+              mx: 'auto',
+              maxHeight: '500px'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop"
-                  alt="Suketana Project"
+                  src={mainImage}
+                  alt="Singarai Project"
                   style={{
                     width: '100%',
-                  height: '400px',
-                    objectFit: 'cover'
+                    minHeight: '400px',
+                    objectFit: 'contain'
                   }}
                 />
-                <Box sx={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
-                  p: 3,
-                  color: 'white'
-                }}>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                    Premium Location
-                  </Typography>
-                  <Typography sx={{ opacity: 0.9 }}>
-                    Strategically located with excellent connectivity
-                  </Typography>
-                </Box>
               </Box>
                 </Box>
 
@@ -305,7 +294,7 @@ export default function Suketana() {
                 mb: 3,
                 opacity: 0.9
               }}>
-                Suketana represents the pinnacle of residential plot development in Hyderabad's fastest-growing corridor. This DTCP approved and RERA registered project offers meticulously planned plots with world-class infrastructure and amenities.
+                Singarai represents the pinnacle of residential plot development near Kotha Valasa. This VUDA approved project offers meticulously planned plots with world-class infrastructure and amenities in a prime location.
               </Typography>
               <Typography sx={{ 
                 color: 'white', 
@@ -314,25 +303,41 @@ export default function Suketana() {
                 mb: 4,
                 opacity: 0.9
               }}>
-                With excellent connectivity to IT hubs, educational institutions, and healthcare facilities, Suketana presents an ideal opportunity for both investors and end-users looking to build their dream homes.
+                With excellent connectivity to Kotha Valasa and surrounding areas, Singarai presents an ideal opportunity for both investors and end-users looking to build their dream homes in a peaceful and well-connected location.
               </Typography>
               
-              {/* Key Features */}
+              {/* Project Highlights */}
               <Box sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ color: gold, fontWeight: 600, mb: 3 }}>
-                  Key Highlights
+                  Project Highlights
                 </Typography>
                 <Grid container spacing={2}>
                   {[
-                    'DTCP Approved Plots',
-                    'RERA Registered',
-                    'Prime Location',
-                    'Excellent Connectivity',
-                    'Modern Infrastructure',
-                    'Investment Potential'
+                    'VUDA Approved Layout',
+                    '100% Cash back in 50 months',
+                    'All 60,40 ft Black Top Roads',
+                    '12 years free maintenance by company',
+                    'Open Drainage System',
+                    'Electricity for every plot',
+                    '100% Clear Title',
+                    'Spot Registration',
+                    '100% Vasthu',
+                    'Perfect Planting for every plot',
+                    'Amenities with Park',
+                    'White Sandal Wood income 50-50 sharing',
+                    'Layout Secured with compound wall',
+                    'Avenue Plantation'
                   ].map((feature, index) => (
-                    <Grid item xs={6} key={index}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <Grid item xs={12} sm={6} key={index}>
+                      <Box sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: 1,
+                        p: 1.5,
+                        bgcolor: 'rgba(224, 161, 70, 0.1)',
+                        borderRadius: 2,
+                        border: `1px solid ${gold}40`
+                      }}>
                         <Box sx={{
                           width: 8,
                           height: 8,
@@ -415,8 +420,8 @@ export default function Suketana() {
               border: `3px solid ${gold}`
             }}>
               <img
-                src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop"
-                alt="Suketana Master Plan"
+                src={locationMap}
+                alt="Singarai Master Plan"
                 style={{
                   width: '100%',
                   height: '600px',
@@ -429,24 +434,6 @@ export default function Suketana() {
               />
               <Box sx={{
                 position: 'absolute',
-                top: 20,
-                right: 20,
-                bgcolor: 'rgba(0,0,0,0.9)',
-                borderRadius: 3,
-                p: 3,
-                color: 'white',
-                backdropFilter: 'blur(10px)',
-                border: `2px solid ${gold}`
-              }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 1, color: gold }}>
-                  Master Plan
-                </Typography>
-                <Typography sx={{ fontSize: '16px', opacity: 0.9 }}>
-                  Comprehensive Development Layout
-                </Typography>
-              </Box>
-              <Box sx={{
-                position: 'absolute',
                 bottom: 20,
                 left: 20,
                 bgcolor: 'rgba(0,0,0,0.9)',
@@ -457,7 +444,7 @@ export default function Suketana() {
                 border: `2px solid ${gold}`
               }}>
                 <Typography sx={{ fontSize: '14px', opacity: 0.9 }}>
-                  Suketana Development Plan
+                  Singarai Development Plan
                 </Typography>
               </Box>
             </Box>
@@ -665,7 +652,7 @@ export default function Suketana() {
               maxWidth: '600px',
               mx: 'auto'
             }}>
-              Explore the beauty and development progress of Suketana
+              Explore the beauty and development progress of Singarai
             </Typography>
           </Box>
 
@@ -788,14 +775,14 @@ export default function Suketana() {
               mx: 'auto'
             }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d83.2184815!3d17.6868159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389a9c9b7%3A0x9b7b8c9d9e9f0a1b!2sSuketana%20Project%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=kotha+valasa&zoom=14"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Suketana Location"
+                title="Singarai Location"
               />
               <Box sx={{
                 position: 'absolute',
@@ -808,10 +795,10 @@ export default function Suketana() {
                 backdropFilter: 'blur(10px)'
               }}>
                 <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Suketana Location
+                  Singarai Location
                 </Typography>
                 <Typography sx={{ fontSize: '14px', opacity: 0.9 }}>
-                  Prime Location in Hyderabad
+                  Prime Location near Kotha Valasa
                 </Typography>
               </Box>
             </Box>
@@ -905,9 +892,7 @@ export default function Suketana() {
                 Excellent Connectivity
               </Typography>
               <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '16px', lineHeight: 1.6 }}>
-                Suketana is strategically located with easy access to major IT hubs, educational institutions, 
-                healthcare facilities, and transportation hubs. The project offers excellent connectivity through 
-                well-maintained roads and upcoming metro connectivity.
+                Singarai is strategically located near Kotha Valasa with excellent connectivity. The project offers easy access to local amenities, educational institutions, healthcare facilities, and transportation hubs in the surrounding area.
               </Typography>
             </Card>
           </Box>
@@ -953,15 +938,15 @@ export default function Suketana() {
               maxWidth: '600px',
               mx: 'auto'
             }}>
-              Common questions about Suketana project
+              Common questions about Singarai project
             </Typography>
           </Box>
 
           <Box sx={{ maxWidth: '800px', mx: 'auto' }}>
             {[
               {
-                question: 'What is the plot size available in Suketana?',
-                answer: 'Suketana offers plots ranging from 1200 sq ft to 2400 sq ft, catering to different budget requirements and family needs.'
+                question: 'What is the plot size available in Singarai?',
+                answer: 'Singarai offers plots ranging from 1200 sq ft to 2400 sq ft, catering to different budget requirements and family needs.'
               },
               {
                 question: 'What are the payment plans available?',
@@ -969,7 +954,7 @@ export default function Suketana() {
               },
               {
                 question: 'Is the project DTCP and RERA approved?',
-                answer: 'Yes, Suketana is fully DTCP approved and RERA registered, ensuring complete legal compliance and protection for investors.'
+                answer: 'Yes, Singarai is fully VUDA approved, ensuring complete legal compliance and protection for investors.'
               },
               {
                 question: 'What amenities are provided in the project?',
@@ -1071,7 +1056,7 @@ export default function Suketana() {
               maxWidth: '600px',
               mx: 'auto'
             }}>
-              Ready to invest in Suketana? Contact us for more information and site visits
+              Ready to invest in Singarai? Contact us for more information and site visits
             </Typography>
           </Box>
 
@@ -1224,7 +1209,7 @@ export default function Suketana() {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
                       <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
                       <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
-                        Direct Call: +91 99026 51666
+                        Direct Call: +91 91703 94959
                       </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>

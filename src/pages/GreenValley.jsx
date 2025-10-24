@@ -4,6 +4,17 @@ import Navbar from '../components/Navbar'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+// Import Guddipa images
+import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
+import guddipaImage1 from '../assets/guddipa/imag1.jpg'
+import guddipaImage2 from '../assets/guddipa/image2.jpg'
+import guddipaImage3 from '../assets/guddipa/image3.jpg'
+import guddipaImage4 from '../assets/guddipa/image4.jpg'
+import guddipaImage5 from '../assets/guddipa/image5.jpg'
+import guddipaImage6 from '../assets/guddipa/image6.jpg'
+import guddipaImage7 from '../assets/guddipa/image7.jpg'
+import guddipaRouteMap from '../assets/guddipa/routemap.jpg'
+
 export default function GreenValley() {
   const gold = '#e0a146';
   const dark = '#181c22';
@@ -77,7 +88,7 @@ export default function GreenValley() {
       const formDataToSend = new FormData();
       formDataToSend.append('name', callbackFormData.name);
       formDataToSend.append('phone', callbackFormData.phone);
-      formDataToSend.append('project', 'Green Valley');
+      formDataToSend.append('project', 'GUDDIPA');
       formDataToSend.append('form_type', 'Callback Request');
 
       const response = await fetch('https://formspree.io/f/xeorlldk', {
@@ -124,11 +135,13 @@ export default function GreenValley() {
   };
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
+    guddipaImage1,
+    guddipaImage2,
+    guddipaImage3,
+    guddipaImage4,
+    guddipaImage5,
+    guddipaImage6,
+    guddipaImage7,
   ];
 
   const [mainImage, setMainImage] = useState(galleryImages[0]);
@@ -141,7 +154,7 @@ export default function GreenValley() {
       <Box sx={{
         position: 'relative',
         py: { xs: 10, md: 15 },
-        backgroundImage: 'url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop)',
+        backgroundImage: `url(${guddipaMainImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         '&::before': {
@@ -174,7 +187,7 @@ export default function GreenValley() {
             fontFamily: '"Playfair Display", serif',
             letterSpacing: '0.05em'
           }}>
-            GREEN VALLEY
+                GUDDIPA
           </Typography>
           <Typography variant="h4" sx={{
             color: 'white',
@@ -182,7 +195,7 @@ export default function GreenValley() {
             mb: 3,
             opacity: 0.9
           }}>
-            Eco-Friendly Residential Plots
+                Premium Residential Plots
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
             <Button variant="contained" sx={{ bgcolor: gold, color: dark, '&:hover': { bgcolor: '#d4943a' } }}>DTCP Approved</Button>
@@ -220,7 +233,7 @@ export default function GreenValley() {
               letterSpacing: '0.05em',
               lineHeight: 1.2
             }}>
-              ABOUT GREEN VALLEY
+                ABOUT GUDDIPA
             </Typography>
             <Typography sx={{
               color: 'white',
@@ -239,28 +252,30 @@ export default function GreenValley() {
               <Box sx={{
                 position: 'relative',
                 borderRadius: 4,
-                overflow: 'hidden',
-              boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
-              border: `3px solid ${gold}`,
-              maxWidth: '800px',
-              mx: 'auto',
-              transition: 'all 0.4s ease-out',
-              '&:hover': {
-                transform: 'scale(1.02)',
-                boxShadow: `0 35px 70px rgba(0,0,0,0.5), 0 0 40px ${gold}30`,
-                '& .overlay-text': {
-                  opacity: 1,
-                  transform: 'translateY(0)'
+                overflow: 'auto',
+                maxHeight: '500px',
+                boxShadow: `0 25px 50px rgba(0,0,0,0.4)`,
+                border: `3px solid ${gold}`,
+                maxWidth: '800px',
+                mx: 'auto',
+                transition: 'all 0.4s ease-out',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                  boxShadow: `0 35px 70px rgba(0,0,0,0.5), 0 0 40px ${gold}30`,
+                  '& .overlay-text': {
+                    opacity: 1,
+                    transform: 'translateY(0)'
+                  }
                 }
-              }
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
-                alt="Green Valley Sustainable Living"
+                  src={guddipaMainImage}
+                alt="Guddipa Main Image"
                   style={{
                     width: '100%',
-                  height: '400px',
-                    objectFit: 'cover'
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block'
                   }}
                 />
                 <Box sx={{
@@ -296,7 +311,7 @@ export default function GreenValley() {
                 mb: 3,
                 opacity: 0.9
               }}>
-                Green Valley represents the pinnacle of sustainable residential development in Hyderabad's fastest-growing corridor. This DTCP approved and RERA registered project offers meticulously planned plots with world-class eco-friendly infrastructure and amenities.
+                Guddipa represents the pinnacle of premium residential development near Kotha Valasa. This DTCP approved project offers meticulously planned plots with world-class infrastructure and amenities in a prime location.
               </Typography>
               <Typography sx={{ 
                 color: 'white', 
@@ -305,7 +320,7 @@ export default function GreenValley() {
                 mb: 4,
                 opacity: 0.9
               }}>
-                With excellent connectivity to IT hubs, educational institutions, and healthcare facilities, Green Valley presents an ideal opportunity for both investors and end-users looking to build their dream homes in harmony with nature.
+                With excellent connectivity to Kotha Valasa and surrounding areas, Guddipa presents an ideal opportunity for both investors and end-users looking to build their dream homes in a premium location.
               </Typography>
             </Grid>
               
@@ -317,19 +332,35 @@ export default function GreenValley() {
                   mb: 3,
                   fontSize: { xs: '1.1rem', md: '1.3rem' }
                 }}>
-                  Key Highlights
+                  Project Highlights
                 </Typography>
                 <Grid container spacing={2}>
                   {[
-                    'DTCP Approved Plots',
-                    'RERA Registered',
-                    'Eco-Friendly Design',
-                    'Solar Street Lighting',
-                    'Rainwater Harvesting',
-                    'Green Landscaping'
+                    'DTCP Approved Layout',
+                    '100% Cash back in 50 months',
+                    'Entrance Arch',
+                    'All 33,40 ft Roads',
+                    '12 years free maintenance by company',
+                    'Electricity & Water Facility',
+                    '100% Clear Title',
+                    'Spot Registration',
+                    '100% Vasthu',
+                    'Perfect Planting for every plot',
+                    'Amenities with Park',
+                    'White Sandal Wood income 50-50 sharing',
+                    'Layout Secured with fencing',
+                    'Avenue Plantation'
                   ].map((feature, index) => (
-                    <Grid item xs={6} key={index}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <Grid item xs={12} sm={6} key={index}>
+                      <Box sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: 1,
+                        p: 1.5,
+                        bgcolor: 'rgba(224, 161, 70, 0.1)',
+                        borderRadius: 2,
+                        border: `1px solid ${gold}40`
+                      }}>
                         <Box sx={{
                           width: 8,
                           height: 8,
@@ -411,8 +442,8 @@ export default function GreenValley() {
               mx: 'auto'
             }}>
               <img
-                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop"
-                alt="Master Plan"
+                src={guddipaRouteMap}
+                alt="Guddipa Master Plan"
                 style={{
                   width: '100%',
                   height: '500px',
@@ -759,14 +790,14 @@ export default function GreenValley() {
               mx: 'auto'
             }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789!2d83.2184815!3d17.6868159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389a9c9b7%3A0x9b7b8c9d9e9f0a1b!2sGreen%20Valley%20Project%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1635789123456!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=guddipa&zoom=14"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Green Valley Location"
+                title="Guddipa Location"
               />
               <Box sx={{
                 position: 'absolute',
@@ -779,10 +810,10 @@ export default function GreenValley() {
                 backdropFilter: 'blur(10px)'
               }}>
                 <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Green Valley Location
+                  Guddipa Location
                 </Typography>
                 <Typography sx={{ fontSize: '14px', opacity: 0.9 }}>
-                  Eco-Friendly Location in Hyderabad
+                  Prime Location near Kotha Valasa
                 </Typography>
               </Box>
             </Box>
@@ -867,9 +898,7 @@ export default function GreenValley() {
                 Green Connectivity
               </Typography>
               <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '16px', lineHeight: 1.6 }}>
-                Green Valley is strategically located with easy access to major IT hubs, educational institutions, 
-                healthcare facilities, and transportation hubs. The project offers excellent connectivity through 
-                eco-friendly transportation options and upcoming metro connectivity.
+                Guddipa is strategically located near Kotha Valasa with excellent connectivity. The project is 1 hour from NAD Junction and near to Ravikamatham, providing easy access to local amenities, educational institutions, healthcare facilities, and transportation hubs.
               </Typography>
             </Card>
           </Box>
@@ -899,7 +928,7 @@ export default function GreenValley() {
           </Typography>
           <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
             {[
-              { question: 'What makes Green Valley eco-friendly?', answer: 'Green Valley features solar street lighting, rainwater harvesting, extensive green cover, and sustainable building materials throughout the development.' },
+              { question: 'What makes Guddipa special?', answer: 'Guddipa features DTCP approved layout, entrance arch, 33-40 ft roads, electricity & water facilities, and comprehensive amenities with park and avenue plantation.' },
               { question: 'Are there any additional charges for eco-friendly features?', answer: 'No, all eco-friendly features are included in the plot price. There are no additional charges for sustainable amenities.' },
               { question: 'What is the plot size available?', answer: 'Plots are available in various sizes, starting from 200 sq yards to 400 sq yards, designed for sustainable living.' },
               { question: 'Is there a payment plan available?', answer: 'Yes, we offer flexible payment plans with easy installments over 12-24 months, making eco-friendly living accessible.' },
@@ -976,7 +1005,7 @@ export default function GreenValley() {
                 mx: 'auto'
               }}
             >
-              Ready to invest in Green Valley? Get in touch with our expert team today
+                Ready to invest in Guddipa? Get in touch with our expert team today
             </Typography>
           </Box>
 
@@ -1112,7 +1141,7 @@ export default function GreenValley() {
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
                       <Phone sx={{ color: gold, mr: 1, fontSize: 20 }} />
                       <Typography sx={{ color: 'white', opacity: 0.9, fontSize: '14px' }}>
-                        Direct Call: +91 99026 51666
+                        Direct Call: +91 91703 94959
                       </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>

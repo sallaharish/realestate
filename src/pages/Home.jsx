@@ -1,7 +1,14 @@
 import { Box, Button, Typography, Container, Grid, Card, CardContent, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import { ExpandMore } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 import HeroCarousel from '../components/HeroCarousel.jsx'
 import { useState, useEffect, useRef } from 'react'
+import singaraiMainImage from '../assets/singarai/main image.jpg'
+import singaraiGallery1 from '../assets/singarai/gallary image 1.jpg'
+import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
+import guddipaImage1 from '../assets/guddipa/imag1.jpg'
+import sampathipuramMainImage from '../assets/sampathipuram/mianimage.jpg'
+import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
 
 function HeroHeader() { return <HeroCarousel /> }
 
@@ -532,19 +539,22 @@ function OurProjects() {
 
   const projects = [
     {
-      name: 'SUKETANA',
-      description: 'A premium open-plot venture village, where nature and opportunity thrive together.',
-      plotNumbers: ['129', '148', '138', '140', '168', '183', '145', '156', '167', '178', '189', '200', '211', '222', '233', '244', '255', '266', '277', '288']
+      name: 'SINGARAI',
+      description: 'A premium open-plot venture near Kotha Valasa, where nature and opportunity thrive together.',
+      backgroundImage: singaraiMainImage,
+      route: '/singarai'
     },
     {
-      name: 'SIRULASEEMA-2',
-      description: 'Sirulaseema-2 is the perfect blend of nature and investment—open plots in a fast-growing destination.',
-      plotNumbers: ['143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200', '201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211']
+      name: 'GUDDIPA',
+      description: 'Guddipa is the perfect blend of nature and investment—open plots near Kotha Valasa with excellent connectivity.',
+      backgroundImage: guddipaMainImage,
+      route: '/guddipa'
     },
     {
-      name: 'SIDIL ACCCAAA 1',
-      description: 'Premium residential plots in a strategic location with excellent connectivity and modern amenities.',
-      plotNumbers: ['301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '322', '323', '324', '325', '326', '327', '328', '329', '330']
+      name: 'SAMPATHIPURAM',
+      description: 'Premium residential plots near Anakapalli with excellent connectivity and modern amenities.',
+      backgroundImage: sampathipuramMainImage,
+      route: '/sampathipuram'
     }
   ];
 
@@ -650,45 +660,30 @@ function OurProjects() {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, position: 'relative', zIndex: 1 }}>
           {projects.map((project, index) => (
             <Box key={project.name} sx={{
-              ...(index === 0 ? {
-                backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  bgcolor: 'rgba(0,0,0,0.6)',
-                  zIndex: 1
-                },
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
-                  pointerEvents: 'none',
-                  zIndex: 2
-                }
-              } : {
-                bgcolor: 'rgba(224, 161, 70, 0.1)',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  width: 200,
-                  height: 200,
-                  background: `radial-gradient(circle, ${gold}20 0%, transparent 70%)`,
-                  borderRadius: '50%',
-                  transform: 'translate(50%, -50%)'
-                }
-              }),
+              backgroundImage: `url(${project.backgroundImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                bgcolor: 'rgba(0,0,0,0.6)',
+                zIndex: 1
+              },
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'radial-gradient(circle at 20% 50%, rgba(224, 161, 70, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(224, 161, 70, 0.1) 0%, transparent 50%)',
+                pointerEvents: 'none',
+                zIndex: 2
+              },
               border: `2px solid ${gold}`,
               borderRadius: 4,
               p: 4,
@@ -705,111 +700,58 @@ function OurProjects() {
                 }
               }
             }}>
-              <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 3 }}>
-                <Grid item xs={12} md={7}>
-                  <Typography variant="h4" sx={{
-                    color: gold,
-                    fontWeight: 800,
-                    mb: 2,
-                    fontSize: { xs: '1.8rem', md: '2.2rem' }
-                  }}>
-                    {project.name}
-                  </Typography>
-                  <Typography sx={{
-                    color: 'white',
-                    fontSize: '16px',
-                    lineHeight: 1.7,
-                    mb: 3,
-                    opacity: 0.9
-                  }}>
-                    {project.description}
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      bgcolor: gold,
-                      color: dark,
-                      fontWeight: 700,
-                      px: 4,
-                      py: 1.5,
-                      borderRadius: 3,
-                      fontSize: '16px',
-                      textTransform: 'none',
-                      boxShadow: `0 4px 20px ${gold}40`,
-                      '&:hover': {
-                        bgcolor: '#c98b36',
-                        transform: 'translateY(-2px)',
-                        boxShadow: `0 6px 25px ${gold}60`
-                      },
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    VIEW MORE
-                  </Button>
-                </Grid>
-                
-                <Grid item xs={12} md={5}>
-                  <Box sx={{
-                    bgcolor: 'rgba(255, 255, 255, 0.95)',
+              <Box sx={{ 
+                textAlign: 'center', 
+                position: 'relative', 
+                zIndex: 3,
+                py: 6
+              }}>
+                <Typography variant="h4" sx={{
+                  color: gold,
+                  fontWeight: 800,
+                  mb: 3,
+                  fontSize: { xs: '2rem', md: '2.5rem' },
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                }}>
+                  {project.name}
+                </Typography>
+                <Typography sx={{
+                  color: 'white',
+                  fontSize: '18px',
+                  lineHeight: 1.7,
+                  mb: 4,
+                  opacity: 0.9,
+                  maxWidth: '600px',
+                  mx: 'auto',
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+                }}>
+                  {project.description}
+                </Typography>
+                <Button
+                  component={Link}
+                  to={project.route}
+                  variant="contained"
+                  sx={{
+                    bgcolor: gold,
+                    color: dark,
+                    fontWeight: 700,
+                    px: 6,
+                    py: 2,
                     borderRadius: 3,
-                    p: 3,
-                    position: 'relative',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: -2,
-                      left: -2,
-                      right: -2,
-                      bottom: -2,
-                      background: `linear-gradient(45deg, ${gold}, #c98b36, ${gold})`,
-                      borderRadius: 3,
-                      zIndex: -1
-                    }
-                  }}>
-                    <Typography sx={{
-                      color: dark,
-                      fontWeight: 700,
-                      mb: 2,
-                      textAlign: 'center',
-                      fontSize: '14px'
-                    }}>
-                      PLOT LAYOUT
-                    </Typography>
-                    <Box sx={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(5, 1fr)',
-                      gap: 1,
-                      maxHeight: 200,
-                      overflow: 'hidden'
-                    }}>
-                      {project.plotNumbers.slice(0, 20).map((number, i) => (
-                        <Box key={i} sx={{
-                          bgcolor: 'rgba(24, 28, 34, 0.1)',
-                          border: '1px solid rgba(24, 28, 34, 0.2)',
-                          borderRadius: 1,
-                          p: 1,
-                          textAlign: 'center',
-                          fontSize: '10px',
-                          fontWeight: 600,
-                          color: dark,
-                          minHeight: 30,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          transition: 'all 0.2s ease',
-                          '&:hover': {
-                            bgcolor: 'rgba(224, 161, 70, 0.2)',
-                            transform: 'scale(1.1)'
-                          }
-                        }}>
-                          {number}
-                        </Box>
-                      ))}
-                    </Box>
-                  </Box>
-                </Grid>
-              </Grid>
+                    fontSize: '18px',
+                    textTransform: 'none',
+                    boxShadow: `0 4px 20px ${gold}40`,
+                    '&:hover': {
+                      bgcolor: '#c98b36',
+                      transform: 'translateY(-2px)',
+                      boxShadow: `0 6px 25px ${gold}60`
+                    },
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  VIEW MORE
+                </Button>
+              </Box>
             </Box>
           ))}
         </Box>
@@ -826,45 +768,45 @@ function Gallery() {
   const galleryImages = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Playground area',
-      title: 'Children Playground',
-      category: 'Amenities'
+      src: singaraiMainImage,
+      alt: 'Singarai Main View',
+      title: 'Singarai Project',
+      category: 'Singarai'
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Aerial view of property',
-      title: 'Aerial Property View',
-      category: 'Overview'
+      src: singaraiGallery1,
+      alt: 'Singarai Development',
+      title: 'Singarai Development',
+      category: 'Singarai'
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Pathway to building',
-      title: 'Beautiful Pathways',
-      category: 'Infrastructure'
+      src: guddipaMainImage,
+      alt: 'Guddipa Main View',
+      title: 'Guddipa Project',
+      category: 'Guddipa'
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Landscaped area with sculptures',
-      title: 'Landscaped Gardens',
-      category: 'Landscaping'
+      src: guddipaImage1,
+      alt: 'Guddipa Development',
+      title: 'Guddipa Development',
+      category: 'Guddipa'
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Gazebo structure',
-      title: 'Elegant Gazebo',
-      category: 'Amenities'
+      src: sampathipuramMainImage,
+      alt: 'Sampathipuram Main View',
+      title: 'Sampathipuram Project',
+      category: 'Sampathipuram'
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1000&auto=format&fit=crop',
-      alt: 'Aerial development view',
-      title: 'Development Overview',
-      category: 'Overview'
+      src: sampathipuramImage1,
+      alt: 'Sampathipuram Development',
+      title: 'Sampathipuram Development',
+      category: 'Sampathipuram'
     }
   ];
 
@@ -1407,87 +1349,87 @@ function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text: "Swargaseema has made it possible for me to invest in real estate and make informed decisions quickly and easily. Their transparency and professionalism are unmatched.",
-      name: "Emily Johnson",
+      text: "Surya Prime Ventures has made it possible for me to invest in real estate and make informed decisions quickly and easily. Their transparency and professionalism are unmatched.",
+      name: "Priya Sharma",
       title: "Business Owner",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 2,
-      text: "I've been investing with Swargaseema for over 2 years now and it's made managing my real estate portfolio so much easier. Highly recommended!",
-      name: "Ethan Miller",
+      text: "I've been investing with Surya Prime Ventures for over 2 years now and it's made managing my real estate portfolio so much easier. Highly recommended!",
+      name: "Rajesh Kumar",
       title: "Investment Advisor",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 3,
-      text: "Swargaseema stands out as the most trustworthy and effective real estate developer I've ever worked with. Their DTCP approved plots give me complete peace of mind.",
-      name: "Olivia Carter",
+      text: "Surya Prime Ventures stands out as the most trustworthy and effective real estate developer I've ever worked with. Their DTCP approved plots give me complete peace of mind.",
+      name: "Anita Reddy",
       title: "Property Investor",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 4,
-      text: "The team at Swargaseema provided excellent guidance throughout my investment journey. Their DTCP approved plots and transparent documentation process made everything smooth.",
-      name: "Michael Chen",
+      text: "The team at Surya Prime Ventures provided excellent guidance throughout my investment journey. Their DTCP approved plots and transparent documentation process made everything smooth.",
+      name: "Suresh Patel",
       title: "Software Engineer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 5,
-      text: "I was initially hesitant about real estate investment, but Swargaseema's professional approach and clear communication made me confident in my decision.",
-      name: "Sarah Williams",
+      text: "I was initially hesitant about real estate investment, but Surya Prime Ventures' professional approach and clear communication made me confident in my decision.",
+      name: "Kavitha Nair",
       title: "Marketing Manager",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 6,
-      text: "The location and connectivity of Swargaseema plots are excellent. I can see great potential for appreciation in the coming years.",
-      name: "David Rodriguez",
+      text: "The location and connectivity of Surya Prime Ventures plots are excellent. I can see great potential for appreciation in the coming years.",
+      name: "Vikram Singh",
       title: "Financial Analyst",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 7,
-      text: "Swargaseema's commitment to quality and customer satisfaction is evident in every interaction. They truly care about their investors' success.",
-      name: "Lisa Thompson",
+      text: "Surya Prime Ventures' commitment to quality and customer satisfaction is evident in every interaction. They truly care about their investors' success.",
+      name: "Meera Iyer",
       title: "HR Director",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 8,
-      text: "The documentation process was hassle-free and transparent. Swargaseema's team ensured everything was completed on time without any hidden costs.",
-      name: "James Wilson",
+      text: "The documentation process was hassle-free and transparent. Surya Prime Ventures' team ensured everything was completed on time without any hidden costs.",
+      name: "Arjun Gupta",
       title: "Project Manager",
-      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 9,
-      text: "I've recommended Swargaseema to several friends and colleagues. Their plots offer excellent value for money with great growth potential.",
-      name: "Maria Garcia",
+      text: "I've recommended Surya Prime Ventures to several friends and colleagues. Their plots offer excellent value for money with great growth potential.",
+      name: "Deepika Joshi",
       title: "Consultant",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 10,
-      text: "The customer service at Swargaseema is outstanding. They answered all my questions promptly and provided detailed information about the investment.",
-      name: "Robert Brown",
+      text: "The customer service at Surya Prime Ventures is outstanding. They answered all my questions promptly and provided detailed information about the investment.",
+      name: "Ravi Agarwal",
       title: "Entrepreneur",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 11,
       text: "Surya Prime Ventures has exceeded my expectations in every way. Their DTCP approved plots and professional approach make them the best choice for real estate investment.",
-      name: "Priya Sharma",
+      name: "Sunita Rao",
       title: "Doctor",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     },
     {
       id: 12,
       text: "I've been investing in real estate for over 10 years, and Surya Prime Ventures stands out for their transparency, quality plots, and excellent customer support.",
-      name: "Rajesh Kumar",
+      name: "Manoj Tiwari",
       title: "Business Executive",
-      image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3"
     }
   ];
 
@@ -2717,9 +2659,9 @@ function CallToAction() {
                 transition: 'all 0.3s ease',
                 minWidth: { xs: '100%', sm: 'auto' }
               }}
-              href="tel:+919902651666"
+              href="tel:+919170394959"
             >
-              Call Now: +91 99026 51666
+              Call Now: +91 91703 94959
             </Button>
 
             <Button
@@ -2743,7 +2685,7 @@ function CallToAction() {
                 transition: 'all 0.3s ease',
                 minWidth: { xs: '100%', sm: 'auto' }
               }}
-              href="https://wa.me/919902651666"
+              href="https://wa.me/919170394959"
               target="_blank"
               rel="noopener noreferrer"
             >

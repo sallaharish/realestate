@@ -8,6 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import logo from '../assets/4K-01.png';
 
 const Footer = () => {
   const gold = '#e0a146';
@@ -34,17 +35,29 @@ const Footer = () => {
         <Grid container spacing={4}>
           {/* Company Info */}
           <Grid item xs={12} md={4}>
-            <Typography 
-              variant="h4" 
-              sx={{ 
-                color: gold, 
-                fontWeight: 700, 
-                mb: 2,
-                fontFamily: '"Playfair Display", serif'
-              }}
-            >
-              SURYA PRIME VENTURES
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+              <Box
+                component="img"
+                src={logo}
+                alt="Surya Prime Ventures"
+                sx={{
+                  height: 60,
+                  width: 'auto',
+                  objectFit: 'contain'
+                }}
+              />
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  color: gold, 
+                  fontWeight: 700,
+                  fontFamily: '"Playfair Display", serif',
+                  fontSize: { xs: '1.5rem', md: '2rem' }
+                }}
+              >
+                SURYA PRIME VENTURES
+              </Typography>
+            </Box>
             <Typography sx={{ 
               color: 'white', 
               opacity: 0.9, 
@@ -52,7 +65,7 @@ const Footer = () => {
               lineHeight: 1.6,
               fontSize: '16px'
             }}>
-              Since 2017, Surya Prime Ventures has established itself as a trusted open plot real estate developer in Telangana. We offer DTCP Approved & RERA registered open plots in well-connected locations.
+              Since 2017, Surya Prime Ventures has established itself as a trusted open plot real estate developer in Andhra Pradesh. We offer DTCP Approved & RERA registered open plots in well-connected locations.
             </Typography>
             
             <Typography 
@@ -207,7 +220,7 @@ const Footer = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <PhoneIcon sx={{ color: gold, fontSize: 20 }} />
                 <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px' }}>
-                  +91 99026 51666
+                  +91 91703 94959
                 </Typography>
               </Box>
             </Box>

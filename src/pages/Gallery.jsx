@@ -2,6 +2,27 @@ import { Box, Container, Typography, Button, IconButton, Dialog, DialogContent, 
 import { PlayArrow, Close, PhotoLibrary, VideoLibrary, Article, Event, Share, Favorite } from '@mui/icons-material'
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
+import singaraiMainImage from '../assets/singarai/main image.jpg'
+import singaraiGallery1 from '../assets/singarai/gallary image 1.jpg'
+import singaraiGallery2 from '../assets/singarai/gallary image 2.jpg'
+import singaraiGallery3 from '../assets/singarai/galllary image 3.jpg'
+import singaraiLocationMap from '../assets/singarai/locatiom map.png'
+
+import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
+import guddipaImage1 from '../assets/guddipa/imag1.jpg'
+import guddipaImage2 from '../assets/guddipa/image2.jpg'
+import guddipaImage3 from '../assets/guddipa/image3.jpg'
+import guddipaImage4 from '../assets/guddipa/image4.jpg'
+import guddipaImage5 from '../assets/guddipa/image5.jpg'
+import guddipaImage6 from '../assets/guddipa/image6.jpg'
+import guddipaImage7 from '../assets/guddipa/image7.jpg'
+import guddipaRouteMap from '../assets/guddipa/routemap.jpg'
+
+import sampathipuramMainImage from '../assets/sampathipuram/mianimage.jpg'
+import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
+import sampathipuramImage2 from '../assets/sampathipuram/image 2.jpg'
+import sampathipuramImage3 from '../assets/sampathipuram/image3.jpg'
+import sampathipuramRouteMap from '../assets/sampathipuram/route map.jpg'
 
 export default function Gallery() {
   const gold = '#e0a146';
@@ -20,101 +41,101 @@ export default function Gallery() {
     images: [
       {
         id: 1,
-        title: 'SUKETANA Master Plan',
+        title: 'SINGARAI Master Plan',
         description: 'Comprehensive development layout with wide roads and modern amenities',
-        src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiLocationMap,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 2,
         title: 'Infrastructure Development',
         description: 'Wide roads, underground drainage, and street lighting',
-        src: 'https://images.unsplash.com/photo-1570129477492-45c00371b117?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiGallery1,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 3,
         title: 'Green Spaces & Parks',
         description: 'Beautifully landscaped green spaces and recreational areas',
-        src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiGallery2,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 4,
         title: 'Security Surveillance',
         description: '24/7 security and surveillance systems',
-        src: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiGallery3,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 5,
         title: 'Clubhouse Facilities',
         description: 'Modern clubhouse with recreational amenities',
-        src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiLocationMap,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 6,
-        title: 'Green Valley Eco Design',
-        description: 'Sustainable residential development with environmental consciousness',
-        src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        title: 'Guddipa Project Design',
+        description: 'DTCP approved residential development with comprehensive amenities',
+        src: guddipaImage1,
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 7,
         title: 'Solar Street Lighting',
         description: 'Eco-friendly solar-powered street lighting system',
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        src: guddipaImage2,
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 8,
         title: 'Rainwater Harvesting',
         description: 'Sustainable water management system',
-        src: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        src: guddipaImage3,
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 9,
-        title: 'Royal Gardens Premium Location',
-        description: 'Strategic location in Hyderabad\'s most prestigious corridor',
-        src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1000&auto=format&fit=crop',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        title: 'Sampathipuram Premium Location',
+        description: 'Strategic location near Anakapalli with excellent connectivity',
+        src: sampathipuramImage1,
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 10,
         title: 'Luxury Amenities',
         description: 'World-class amenities and facilities',
-        src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        src: sampathipuramImage2,
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 11,
         title: 'Modern Architecture',
         description: 'Contemporary design elements and architectural excellence',
-        src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop',
+        src: sampathipuramImage3,
         project: 'All Projects',
-        location: 'Hyderabad',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       // Additional images for "Load More"
@@ -122,138 +143,111 @@ export default function Gallery() {
         id: 12,
         title: 'Construction Progress',
         description: 'Ongoing development and construction activities',
-        src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiMainImage,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 13,
         title: 'Landscaping Design',
         description: 'Beautiful landscape architecture and garden design',
-        src: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        src: guddipaImage4,
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
-      {
-        id: 14,
-        title: 'Premium Location View',
-        description: 'Panoramic views from our premium residential plots',
-        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
-        date: '2024'
-      },
-      {
-        id: 15,
-        title: 'Community Facilities',
-        description: 'Shared community spaces and recreational facilities',
-        src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop',
-        project: 'All Projects',
-        location: 'Hyderabad',
-        date: '2024'
-      },
-      {
-        id: 16,
-        title: 'Investment Opportunity',
-        description: 'Prime real estate investment opportunity in Hyderabad',
-        src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
-        project: 'All Projects',
-        location: 'Hyderabad',
-        date: '2024'
-      }
     ],
     videos: [
       {
         id: 1,
-        title: 'SUKETANA Project Overview',
-        description: 'Experience the premium residential plots in Hyderabad\'s most promising corridor',
-        thumbnail: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop',
+        title: 'SINGARAI Project Overview',
+        description: 'Experience the premium residential plots near Kotha Valasa in a prime location',
+        thumbnail: singaraiMainImage,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 2,
-        title: 'Green Valley Eco Tour',
-        description: 'Explore sustainable living in harmony with nature',
-        thumbnail: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
+        title: 'Guddipa Project Tour',
+        description: 'Explore premium residential plots near Kotha Valasa',
+        thumbnail: guddipaMainImage,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 3,
-        title: 'Royal Gardens Luxury Tour',
-        description: 'Discover luxury living in Hyderabad\'s prestigious corridor',
-        thumbnail: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop',
+        title: 'Sampathipuram Project Tour',
+        description: 'Discover premium residential plots near Anakapalli',
+        thumbnail: sampathipuramMainImage,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 4,
-        title: 'SUKETANA Site Visit',
-        description: 'A comprehensive walkthrough of the SUKETANA project site',
-        thumbnail: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
+        title: 'SINGARAI Site Visit',
+        description: 'A comprehensive walkthrough of the SINGARAI project site',
+        thumbnail: singaraiGallery1,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 5,
-        title: 'Green Valley Amenities',
-        description: 'Explore the eco-friendly amenities at Green Valley',
-        thumbnail: 'https://images.unsplash.com/photo-1570129477492-45c00371b117?q=80&w=1000&auto=format&fit=crop',
+        title: 'Guddipa Amenities',
+        description: 'Explore the comprehensive amenities at Guddipa',
+        thumbnail: guddipaImage7,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024'
       },
       {
         id: 6,
-        title: 'Royal Gardens Infrastructure',
-        description: 'A look at the world-class infrastructure at Royal Gardens',
-        thumbnail: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop',
+        title: 'Sampathipuram Infrastructure',
+        description: 'A look at the DTCP approved infrastructure at Sampathipuram',
+        thumbnail: sampathipuramRouteMap,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024'
       }
     ],
     pressRelease: [
       {
         id: 1,
-        title: 'SUKETANA Project Launch Announcement',
-        description: 'Surya Prime Ventures announces the launch of SUKETANA, premium residential plots in Hyderabad',
-        src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        title: 'SINGARAI Project Launch Announcement',
+        description: 'Surya Prime Ventures announces the launch of SINGARAI, premium residential plots near Kotha Valasa',
+        src: singaraiGallery2,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024-01-15',
         type: 'Press Release'
       },
       {
         id: 2,
-        title: 'Green Valley Eco-Friendly Initiative',
-        description: 'New sustainable development practices introduced in Green Valley project',
+        title: 'Guddipa Development Initiative',
+        description: 'New development practices introduced in Guddipa project',
         src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024-02-20',
         type: 'Press Release'
       },
       {
         id: 3,
-        title: 'Royal Gardens Luxury Amenities Update',
-        description: 'World-class amenities and facilities unveiled for Royal Gardens residents',
+        title: 'Sampathipuram Amenities Update',
+        description: 'Comprehensive amenities and facilities unveiled for Sampathipuram residents',
         src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024-03-10',
         type: 'Press Release'
       },
@@ -263,7 +257,7 @@ export default function Gallery() {
         description: 'All Surya Prime Ventures projects receive DTCP approval and RERA registration',
         src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
         project: 'All Projects',
-        location: 'Hyderabad',
+        location: 'Near Kotha Valasa',
         date: '2024-04-05',
         type: 'Press Release'
       }
@@ -271,31 +265,31 @@ export default function Gallery() {
     events: [
       {
         id: 1,
-        title: 'SUKETANA Site Visit Event',
+        title: 'SINGARAI Site Visit Event',
         description: 'Exclusive site visit event for potential investors and buyers',
-        src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop',
-        project: 'SUKETANA',
-        location: 'Hyderabad',
+        src: singaraiGallery3,
+        project: 'SINGARAI',
+        location: 'Near Kotha Valasa',
         date: '2024-05-15',
         type: 'Event'
       },
       {
         id: 2,
-        title: 'Green Valley Eco Awareness Program',
-        description: 'Educational program about sustainable living and eco-friendly practices',
+        title: 'Guddipa Development Program',
+        description: 'Educational program about residential development and amenities',
         src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop',
-        project: 'Green Valley',
-        location: 'Hyderabad',
+        project: 'GUDDIPA',
+        location: 'Near Kotha Valasa',
         date: '2024-06-20',
         type: 'Event'
       },
       {
         id: 3,
-        title: 'Royal Gardens Grand Opening',
-        description: 'Grand opening ceremony with VIP guests and media coverage',
+        title: 'Sampathipuram Grand Opening',
+        description: 'Grand opening ceremony with VIP guests and media coverage near Anakapalli',
         src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop',
-        project: 'Royal Gardens',
-        location: 'Hyderabad',
+        project: 'SAMPATHIPURAM',
+        location: 'Near Kotha Valasa',
         date: '2024-07-10',
         type: 'Event'
       },
@@ -305,7 +299,7 @@ export default function Gallery() {
         description: 'Annual customer appreciation event with special offers and entertainment',
         src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop',
         project: 'All Projects',
-        location: 'Hyderabad',
+        location: 'Near Kotha Valasa',
         date: '2024-08-25',
         type: 'Event'
       }
@@ -467,7 +461,7 @@ export default function Gallery() {
             justifyContent: 'center'
           }}>
             {getCurrentData().length > 0 ? (
-              getCurrentData().map((media, index) => (
+              getCurrentData().map((media) => (
                 <Box key={media.id}>
                   <Box sx={{
                     position: 'relative',

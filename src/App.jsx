@@ -55,9 +55,9 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/suketana" element={<Suketana />} />
-        <Route path="/green-valley" element={<GreenValley />} />
-        <Route path="/royal-gardens" element={<RoyalGardens />} />
+        <Route path="/singarai" element={<Suketana />} />
+        <Route path="/guddipa" element={<GreenValley />} />
+        <Route path="/sampathipuram" element={<RoyalGardens />} />
         
         {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLogin />} />

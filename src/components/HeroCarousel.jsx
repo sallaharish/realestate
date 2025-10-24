@@ -2,29 +2,30 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Navbar from './Navbar'
 import { Box, Button, Container, Typography } from '@mui/material'
-import Building1 from '../assets/building1.jpg'
-import Building2 from '../assets/building2.jpg'
-import Building3 from '../assets/building3.jpg'
+// Using high-quality open plot/land development images
+const Building1 = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3'
+const Building2 = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3'
+const Building3 = 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3'
 
 export default function HeroCarousel() {
   const slides = useMemo(() => [
     {
       image: Building1,
-      title: 'Rewriting the Narrative.',
-      subtitle: 'Redefining the Cityscape of Vizag.',
-      cta: 'Schedule Your Site Visit'
+      title: 'Open Plot Investment',
+      subtitle: 'Prime land parcels with clear titles and excellent growth potential.',
+      cta: 'View Plots'
     },
     {
       image: Building2,
-      title: 'Premium Apartments in Vizag',
-      subtitle: 'Luxury gated communities and lifestyle amenities.',
-      cta: 'Explore Projects'
+      title: 'Land Development',
+      subtitle: 'Strategic locations with infrastructure development and connectivity.',
+      cta: 'Explore Land'
     },
     {
       image: Building3, 
-      title: 'Crafted For Modern Living',
-      subtitle: 'Quality. Comfort. Community.',
-      cta: 'Know More'
+      title: 'Plot Investment Opportunity',
+      subtitle: 'Secure your future with premium open plots in growing areas.',
+      cta: 'Book Plot'
     }
   ], [])
 

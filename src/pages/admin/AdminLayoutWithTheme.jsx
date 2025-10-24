@@ -21,6 +21,7 @@ import {
   Switch,
   FormControlLabel
 } from '@mui/material'
+import logo from '../../assets/4K-01.png'
 import {
   Menu as MenuIcon,
   Dashboard,
@@ -138,8 +139,22 @@ export default function AdminLayoutWithTheme({ children }) {
         p: 3, 
         textAlign: 'center', 
         borderBottom: `2px solid ${gold}20`,
-        bgcolor: customTheme.palette.background.card
+        bgcolor: customTheme.palette.background.card,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 1
       }}>
+        <Box
+          component="img"
+          src={logo}
+          alt="Surya Prime Ventures"
+          sx={{
+            height: 40,
+            width: 'auto',
+            objectFit: 'contain'
+          }}
+        />
         <Typography
           variant="h5"
           sx={{

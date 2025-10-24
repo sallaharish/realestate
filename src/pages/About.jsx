@@ -279,7 +279,7 @@ export default function About() {
                       Call Us
                     </Typography>
                     <Typography sx={{ color: 'white', opacity: 0.8, fontSize: '14px', lineHeight: 1.4 }}>
-                      Phone: +91 99026 51666<br />WhatsApp: +91 99026 51666
+                      Phone: +91 91703 94959<br />WhatsApp: +91 91703 94959
                     </Typography>
                   </Box>
                 </Box>
