@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // Import Sampathipuram images
-import sampathipuramMainImage from '../assets/sampathipuram/mianimage.jpg'
+import sampathipuramMainImage from '../assets/sampathipuram/mainimage.jpg'
 import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
 import sampathipuramImage2 from '../assets/sampathipuram/image 2.jpg'
 import sampathipuramImage3 from '../assets/sampathipuram/image3.jpg'

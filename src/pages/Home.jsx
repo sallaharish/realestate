@@ -7,7 +7,7 @@ import singaraiMainImage from '../assets/singarai/main image.jpg'
 import singaraiGallery1 from '../assets/singarai/gallary image 1.jpg'
 import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
 import guddipaImage1 from '../assets/guddipa/imag1.jpg'
-import sampathipuramMainImage from '../assets/sampathipuram/mianimage.jpg'
+import sampathipuramMainImage from '../assets/sampathipuram/mainimage.jpg'
 import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
 
 function HeroHeader() { return <HeroCarousel /> }
