@@ -3,9 +3,10 @@ import { ExpandMore, LocationOn, Email, Phone, Star, Business, Timeline, CheckCi
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
 import mainImage from '../assets/singarai/main image.jpg'
-import galleryImage1 from '../assets/singarai/gallary image 1.jpg'
-import galleryImage2 from '../assets/singarai/gallary image 2.jpg'
-import galleryImage3 from '../assets/singarai/galllary image 3.jpg'
+import newImage1 from '../assets/singarai/DJI_0304 (1).JPG'
+import newImage2 from '../assets/singarai/WhatsApp Image 2025-10-02 at 8.52.48 AM.jpeg.jpg'
+import newImage3 from '../assets/singarai/DJI_0300 (2).JPG'
+import newImage4 from '../assets/singarai/DJI_0349 (2).JPG'
 import locationMap from '../assets/singarai/locatiom map.png'
 
 export default function Suketana() {
@@ -130,10 +131,9 @@ export default function Suketana() {
 
 
   const galleryImages = [
-    mainImage,
-    galleryImage1,
-    galleryImage2,
-    galleryImage3,
+    newImage1,
+    newImage2,
+    newImage3,
     locationMap,
   ];
 
@@ -1230,6 +1230,9 @@ export default function Suketana() {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                   variant="contained"
+                  href="https://wa.me/919170394959"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     bgcolor: '#25D366',
                     color: 'white',

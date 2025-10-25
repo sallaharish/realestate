@@ -21,7 +21,7 @@ import {
   Switch,
   FormControlLabel
 } from '@mui/material'
-import logo from '../../assets/4K-01.png'
+import logo from '../../assets/new logo.png'
 import {
   Menu as MenuIcon,
   Dashboard,
@@ -150,9 +150,19 @@ export default function AdminLayoutWithTheme({ children }) {
           src={logo}
           alt="Surya Prime Ventures"
           sx={{
-            height: 40,
-            width: 'auto',
-            objectFit: 'contain'
+            height: 50,
+            width: 50,
+            objectFit: 'contain',
+            borderRadius: 1,
+            border: '2px solid rgba(224, 161, 70, 0.3)',
+            padding: 0.5,
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              borderColor: 'rgba(224, 161, 70, 0.6)',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              transform: 'scale(1.05)'
+            }
           }}
         />
         <Typography

@@ -6,13 +6,11 @@ import { Link } from 'react-router-dom'
 
 // Import Guddipa images
 import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
-import guddipaImage1 from '../assets/guddipa/imag1.jpg'
-import guddipaImage2 from '../assets/guddipa/image2.jpg'
-import guddipaImage3 from '../assets/guddipa/image3.jpg'
-import guddipaImage4 from '../assets/guddipa/image4.jpg'
-import guddipaImage5 from '../assets/guddipa/image5.jpg'
-import guddipaImage6 from '../assets/guddipa/image6.jpg'
-import guddipaImage7 from '../assets/guddipa/image7.jpg'
+import newGuddipaImage1 from '../assets/guddipa/DJI_0300 (2).JPG'
+import newGuddipaImage2 from '../assets/guddipa/DJI_0347 (1).JPG'
+import newGuddipaImage3 from '../assets/singarai/DJI_0349 (2).JPG'
+import newGuddipaImage4 from '../assets/guddipa/KFZ_6091 (1).JPG'
+import newGuddipaImage5 from '../assets/guddipa/WhatsApp Image 2025-10-02 at 8.52.48 AM (1).jpeg.jpg'
 import guddipaRouteMap from '../assets/guddipa/routemap.jpg'
 
 export default function GreenValley() {
@@ -135,13 +133,12 @@ export default function GreenValley() {
   };
 
   const galleryImages = [
-    guddipaImage1,
-    guddipaImage2,
-    guddipaImage3,
-    guddipaImage4,
-    guddipaImage5,
-    guddipaImage6,
-    guddipaImage7,
+    newGuddipaImage1,
+    newGuddipaImage2,
+    newGuddipaImage3,
+    newGuddipaImage4,
+    newGuddipaImage5,
+    guddipaRouteMap,
   ];
 
   const [mainImage, setMainImage] = useState(galleryImages[0]);
@@ -1162,6 +1159,9 @@ export default function GreenValley() {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                   variant="contained"
+                  href="https://wa.me/919170394959"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     bgcolor: '#25D366',
                     color: 'white',

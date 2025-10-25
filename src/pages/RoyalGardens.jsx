@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom'
 
 // Import Sampathipuram images
 import sampathipuramMainImage from '../assets/sampathipuram/mainimage.jpg'
-import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
-import sampathipuramImage2 from '../assets/sampathipuram/image 2.jpg'
-import sampathipuramImage3 from '../assets/sampathipuram/image3.jpg'
+import newSampathipuramImage1 from '../assets/SAMPATHIPURAM/DJI_0307 (1).JPG'
+import newSampathipuramImage2 from '../assets/SAMPATHIPURAM/DJI_0341 (1) (3).JPG'
+import newSampathipuramImage3 from '../assets/SAMPATHIPURAM/DJI_0446 (4).JPG'
+import newSampathipuramImage4 from '../assets/SAMPATHIPURAM/DJI_0461 (1) (2).JPG'
 import sampathipuramRouteMap from '../assets/sampathipuram/route map.jpg'
 
 export default function RoyalGardens() {
@@ -131,9 +132,10 @@ export default function RoyalGardens() {
   };
 
   const galleryImages = [
-    sampathipuramImage1,
-    sampathipuramImage2,
-    sampathipuramImage3,
+    newSampathipuramImage1,
+    newSampathipuramImage2,
+    newSampathipuramImage3,
+    newSampathipuramImage4,
     sampathipuramRouteMap,
   ];
 
@@ -1131,6 +1133,9 @@ export default function RoyalGardens() {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Button
                     variant="contained"
+                    href="https://wa.me/919170394959"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
                       bgcolor: '#25D366',
                       color: 'white',

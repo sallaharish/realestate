@@ -35,10 +35,19 @@ import { ThemeProvider } from './contexts/ThemeContext.jsx'
 
 function PageContainer({ children }) {
   return (
-    <Box>
+    <Box sx={{ 
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      '& > *': {
+        animation: 'fadeIn 0.6s ease-out'
+      }
+    }}>
       {/* Navbar removed from here, will be inside HeroCarousel on Home page */}
       {/* <Toolbar /> */}
-      {children}
+      <Box sx={{ flex: 1 }}>
+        {children}
+      </Box>
       <FloatingActions />
       <Footer />
     </Box>

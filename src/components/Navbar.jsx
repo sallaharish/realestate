@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import PhoneIcon from '@mui/icons-material/Phone'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../assets/4K-01.png'
+import logo from '../assets/new logo.png'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -80,16 +80,21 @@ export default function Navbar() {
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
-            gap: 1
+            gap: 1.5,
+            justifyContent: 'flex-start'
           }}>
             <Box
               component="img"
               src={logo}
               alt="Surya Prime Ventures"
               sx={{
-                height: { xs: 40, md: 50 },
-                width: 'auto',
-                objectFit: 'contain'
+                height: { xs: 45, md: 60 },
+                width: { xs: 45, md: 60 },
+                objectFit: 'contain',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
               }}
             />
             <Typography sx={{
@@ -284,9 +289,13 @@ export default function Navbar() {
               src={logo}
               alt="Surya Prime Ventures"
               sx={{
-                height: 50,
-                width: 'auto',
-                objectFit: 'contain'
+                height: 60,
+                width: 60,
+                objectFit: 'contain',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
               }}
             />
             <Typography variant="h6" sx={{ 

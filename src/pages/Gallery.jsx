@@ -3,22 +3,21 @@ import { PlayArrow, Close, PhotoLibrary, VideoLibrary, Article, Event, Share, Fa
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
 import singaraiMainImage from '../assets/singarai/main image.jpg'
-import singaraiGallery1 from '../assets/singarai/gallary image 1.jpg'
-import singaraiGallery2 from '../assets/singarai/gallary image 2.jpg'
-import singaraiGallery3 from '../assets/singarai/galllary image 3.jpg'
+import singaraiNewImage1 from '../assets/singarai/DJI_0304 (1).JPG'
+import singaraiNewImage2 from '../assets/singarai/WhatsApp Image 2025-10-02 at 8.52.48 AM.jpeg.jpg'
 import singaraiLocationMap from '../assets/singarai/locatiom map.png'
 
 import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
-import guddipaImage1 from '../assets/guddipa/imag1.jpg'
-import guddipaImage2 from '../assets/guddipa/image2.jpg'
-import guddipaImage3 from '../assets/guddipa/image3.jpg'
-import guddipaImage4 from '../assets/guddipa/image4.jpg'
-import guddipaImage7 from '../assets/guddipa/image7.jpg'
+import guddipaNewImage1 from '../assets/guddipa/DJI_0300 (2).JPG'
+import guddipaNewImage2 from '../assets/guddipa/DJI_0347 (1).JPG'
+import guddipaNewImage3 from '../assets/singarai/DJI_0349 (2).JPG'
+import guddipaNewImage4 from '../assets/guddipa/KFZ_6091 (1).JPG'
+import guddipaNewImage5 from '../assets/guddipa/WhatsApp Image 2025-10-02 at 8.52.48 AM (1).jpeg.jpg'
 
 import sampathipuramMainImage from '../assets/sampathipuram/mainimage.jpg'
-import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
-import sampathipuramImage2 from '../assets/sampathipuram/image 2.jpg'
-import sampathipuramImage3 from '../assets/sampathipuram/image3.jpg'
+import sampathipuramNewImage1 from '../assets/SAMPATHIPURAM/DJI_0307 (1).JPG'
+import sampathipuramNewImage2 from '../assets/SAMPATHIPURAM/DJI_0341 (1) (3).JPG'
+import sampathipuramNewImage3 from '../assets/SAMPATHIPURAM/DJI_0446 (4).JPG'
 import sampathipuramRouteMap from '../assets/sampathipuram/route map.jpg'
 
 export default function Gallery() {
@@ -49,7 +48,7 @@ export default function Gallery() {
         id: 2,
         title: 'Infrastructure Development',
         description: 'Wide roads, underground drainage, and street lighting',
-        src: singaraiGallery1,
+        src: singaraiNewImage1,
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -58,7 +57,7 @@ export default function Gallery() {
         id: 3,
         title: 'Green Spaces & Parks',
         description: 'Beautifully landscaped green spaces and recreational areas',
-        src: singaraiGallery2,
+        src: singaraiNewImage2,
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -67,7 +66,7 @@ export default function Gallery() {
         id: 4,
         title: 'Security Surveillance',
         description: '24/7 security and surveillance systems',
-        src: singaraiGallery3,
+        src: singaraiNewImage2,
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -85,7 +84,7 @@ export default function Gallery() {
         id: 6,
         title: 'Guddipa Project Design',
         description: 'DTCP approved residential development with comprehensive amenities',
-        src: guddipaImage1,
+        src: guddipaNewImage1,
         project: 'GUDDIPA',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -94,7 +93,7 @@ export default function Gallery() {
         id: 7,
         title: 'Solar Street Lighting',
         description: 'Eco-friendly solar-powered street lighting system',
-        src: guddipaImage2,
+        src: guddipaNewImage2,
         project: 'GUDDIPA',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -103,7 +102,7 @@ export default function Gallery() {
         id: 8,
         title: 'Rainwater Harvesting',
         description: 'Sustainable water management system',
-        src: guddipaImage3,
+        src: guddipaNewImage3,
         project: 'GUDDIPA',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -112,7 +111,7 @@ export default function Gallery() {
         id: 9,
         title: 'Sampathipuram Premium Location',
         description: 'Strategic location near Anakapalli with excellent connectivity',
-        src: sampathipuramImage1,
+        src: sampathipuramNewImage1,
         project: 'SAMPATHIPURAM',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -121,7 +120,7 @@ export default function Gallery() {
         id: 10,
         title: 'Luxury Amenities',
         description: 'World-class amenities and facilities',
-        src: sampathipuramImage2,
+        src: sampathipuramNewImage2,
         project: 'SAMPATHIPURAM',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -130,7 +129,7 @@ export default function Gallery() {
         id: 11,
         title: 'Modern Architecture',
         description: 'Contemporary design elements and architectural excellence',
-        src: sampathipuramImage3,
+        src: sampathipuramNewImage3,
         project: 'All Projects',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -149,7 +148,7 @@ export default function Gallery() {
         id: 13,
         title: 'Landscaping Design',
         description: 'Beautiful landscape architecture and garden design',
-        src: guddipaImage4,
+        src: guddipaNewImage4,
         project: 'GUDDIPA',
         location: 'Near Kotha Valasa',
         date: '2024'
@@ -190,7 +189,7 @@ export default function Gallery() {
         id: 4,
         title: 'SINGARAI Site Visit',
         description: 'A comprehensive walkthrough of the SINGARAI project site',
-        thumbnail: singaraiGallery1,
+        thumbnail: singaraiNewImage1,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
@@ -200,7 +199,7 @@ export default function Gallery() {
         id: 5,
         title: 'Guddipa Amenities',
         description: 'Explore the comprehensive amenities at Guddipa',
-        thumbnail: guddipaImage7,
+        thumbnail: guddipaNewImage5,
         videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
         project: 'GUDDIPA',
         location: 'Near Kotha Valasa',
@@ -222,7 +221,7 @@ export default function Gallery() {
         id: 1,
         title: 'SINGARAI Project Launch Announcement',
         description: 'Surya Prime Ventures announces the launch of SINGARAI, premium residential plots near Kotha Valasa',
-        src: singaraiGallery2,
+        src: singaraiNewImage2,
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
         date: '2024-01-15',
@@ -264,7 +263,7 @@ export default function Gallery() {
         id: 1,
         title: 'SINGARAI Site Visit Event',
         description: 'Exclusive site visit event for potential investors and buyers',
-        src: singaraiGallery3,
+        src: singaraiNewImage2,
         project: 'SINGARAI',
         location: 'Near Kotha Valasa',
         date: '2024-05-15',

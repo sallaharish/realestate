@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import HeroCarousel from '../components/HeroCarousel.jsx'
 import { useState, useEffect, useRef } from 'react'
 import singaraiMainImage from '../assets/singarai/main image.jpg'
-import singaraiGallery1 from '../assets/singarai/gallary image 1.jpg'
+import singaraiGallery1 from '../assets/singarai/DJI_0304 (1).JPG'
 import guddipaMainImage from '../assets/guddipa/mainimage.jpg'
-import guddipaImage1 from '../assets/guddipa/imag1.jpg'
+import guddipaImage1 from '../assets/guddipa/DJI_0300 (2).JPG'
 import sampathipuramMainImage from '../assets/sampathipuram/mainimage.jpg'
-import sampathipuramImage1 from '../assets/sampathipuram/image 1.jpg'
+import sampathipuramImage1 from '../assets/SAMPATHIPURAM/DJI_0307 (1).JPG'
 
 function HeroHeader() { return <HeroCarousel /> }
+
 
 function AnimatedCounter({ target, suffix = '', duration = 1000 }) {
   const [count, setCount] = useState(0);
